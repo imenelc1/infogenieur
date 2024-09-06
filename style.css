@@ -1,0 +1,182 @@
+@import url('https://fonts.cdnfonts.com/css/nasalization');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@font-face {
+    font-family: 'Nasalization';
+    src: url('font/nasalization-rg.otf');
+}
+
+:root {
+    --menu-font: 'Nasalization', sans-serif;
+    --body-font: "Red Hat Display", sans-serif;
+    --white-color: #FFFFFF;
+    --body-color: #101221;
+    --one-color: #75A5FF;
+    --tow-color: #2339FF;
+}
+
+* {
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px; /* Ajout de max-width */
+    justify-content: space-between; /* Pour plus de flexibilité */
+    align-items: center;
+    gap: 2rem; /* Réduction du gap pour des écrans plus petits */
+    background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
+    /* Utilisation des préfixes pour border-radius */
+    -webkit-border-radius: 54px;
+    -moz-border-radius: 54px;
+    border-radius: 54px;
+
+    margin: 0 auto;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.logo {
+    width: 77px;
+    height: 45px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Réduction du gap pour plus de flexibilité */
+    list-style: none; 
+}
+
+header nav ul li {
+    margin: 0;
+}
+
+header nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: var(--white-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    color: var(--one-color);
+}
+
+nav ul li #visibel:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+nav ul li a.closed {
+    color: #888;
+    cursor: not-allowed;
+}
+
+.contribute {
+    display: flex;
+    padding: 10px 12px; /* Réduction du padding pour ajustement */
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    /* Utilisation des préfixes pour border-radius */
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+
+    border: 1px solid var(--one-color);
+    background: none;
+    color: #FFF;
+    transition: color 0.3s ease;
+}
+
+.contribute:hover {
+    background: var(--one-color);
+}
+.title{
+    font-family: var(--menu-font);
+    color: white;
+    font-size: 50px;
+    padding: 150px;
+    
+}
+
+.texte{
+    color: #FFF;
+   font-family: var(--body-font);
+   font-size: 20px;
+   font-style: italic;
+   font-weight: 400;
+   max-width: 700px;
+   margin-top: -120px;
+   padding-left: 100px;
+   height: 24px;
+   line-height: normal;
+
+}
+.texte span{
+    background: linear-gradient(90deg, #2339FF 7.6%, #75A5FF 47.1%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+
+    
+}
+.explore{
+    text-decoration: none;
+    color: #FFF;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.8px;
+}
+.icon{
+    fill: linear-gradient(88deg, #274188 1.32%, rgba(44, 80, 170, 0.25) 98.68%);
+}
+/* Media Queries pour la responsivité */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Les éléments seront empilés verticalement */
+        gap: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1.5rem; /* Espacement réduit pour mobiles */
+    }
+
+    .contribute {
+        padding: 8px 10px; /* Ajustement du padding pour mobiles */
+    }
+}
