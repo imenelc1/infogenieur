@@ -1,6 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/nasalization');
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-
 @font-face {
     font-family: 'Nasalization';
     src: url('font/nasalization-rg.otf');
@@ -21,43 +20,48 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: var(--body-font);
-    background-color: var(--body-color);
+    background-color: var(--body-color);  
     background-image: url('images/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh;  
+  
 }
+
+/*******************************LE MENU***********************************************************/
 
 header {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
-    max-width: 1200px; 
+    max-width: 1200px;
     justify-content: space-between; 
     align-items: center;
-    gap: 2rem; 
     background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
     -webkit-border-radius: 54px;
     -moz-border-radius: 54px;
     border-radius: 54px;
-
     margin: 0.625rem auto;
     font-size: 1rem;
     white-space: nowrap;
     padding:0.625rem 2rem;
+ 
 }
+
 header img {
     width: 77px;
     height: 45px;
 }
+
 header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3.5rem; /* Réduction du gap pour plus de flexibilité */
+    gap: 3.5rem; 
     list-style: none; 
 }
 
@@ -84,50 +88,81 @@ nav ul li #visibel:hover::before {
 }
 
 nav ul li a.closed {
-    color:var(--inabel-color);
+    color: var(--inabel-color);
     cursor: not-allowed;
 }
 
 .contribute {
     display: flex;
-    padding: 10px 12px; /* Réduction du padding pour ajustement */
+    padding: 0.625rem 0.75rem; 
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
-
-    /* Utilisation des préfixes pour border-radius */
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
     border-radius: 60px;
-
     border: 1px solid var(--one-color);
     background: none;
     color: #FFF;
     transition: color 0.3s ease;
+    
 }
 
 .contribute:hover {
     background: var(--one-color);
 }
+
+
+/**********************************LE PARAGRAPHE********************************************************/
+main {
+    display: flex;
+    width: 100vw;
+    height: 120vh;
+    padding-bottom: 0.625rem ;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 100px;
+   
+}
+main .para
+{
+    display: flex;
+    justify-content:flex-start;  
+    align-items: flex-start;
+    flex-direction: column;
+    width:50%;
+    height: 50%;
+    gap: 3.5rem;
+   
+}
+
+main .welcome{
+    display: flex;
+    width: 641px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    
+}
+
 .title{
     font-family: var(--menu-font);
     color: white;
-    font-size: 50px;
-    padding: 150px;
-    
+    font-size: 40px;
+ 
 }
+
 
 .texte{
     color: #FFF;
    font-family: var(--body-font);
-   font-size: 20px;
+   font-size: 18px;
    font-style: italic;
    font-weight: 400;
    max-width: 700px;
-   margin-top: -120px;
-   padding-left: 100px;
-   height: 24px;
+   height: 20px;
    line-height: normal;
+  
 
 }
 .texte span{
@@ -152,29 +187,36 @@ nav ul li a.closed {
     font-weight: 500;
     line-height: normal;
     letter-spacing: 1.8px;
-    margin-right: -10px;
-}
-i.bx-chevron-right {
-    margin-right: -20px; 
-    background: linear-gradient(88deg, #274188 1.32%, rgba(44, 80, 170, 0.25) 98.68%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
 }
 
-/* Media Queries pour la responsivité */
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************MEDIA**************************************************/
+
+
 @media screen and (max-width: 768px) {
     header {
-        flex-direction: column; /* Les éléments seront empilés verticalement */
+        flex-direction: column;
         gap: 1.5rem;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 1.5rem; /* Espacement réduit pour mobiles */
+        gap: 1.5rem; 
     }
 
     .contribute {
-        padding: 8px 10px; /* Ajustement du padding pour mobiles */
+        padding: 0.5rem 0.625rem; 
     }
 }
