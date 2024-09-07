@@ -22,13 +22,14 @@
 }
 
 body {
+    overflow-x: hidden;
     font-family: var(--body-font);
     background-color: var(--body-color);  
-    background-image: url('images/background.png');
-    background-size: cover;
+    background-image: url('images/b2.png');
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;  
+    height: 100%;  
   
 }
 
@@ -42,14 +43,34 @@ header {
     justify-content: space-between; 
     align-items: center;
     background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
-    -webkit-border-radius: 54px;
-    -moz-border-radius: 54px;
     border-radius: 54px;
     margin: 0.625rem auto;
     font-size: 1rem;
     white-space: nowrap;
-    padding:0.625rem 2rem;
- 
+    padding: 0.625rem 2rem;
+    position: relative; 
+    z-index: 1; 
+}
+
+header::before, header::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    width: 300px; 
+    height: 300px; 
+    background: rgba(44, 80, 170, 0.70); 
+    border-radius: 384px; 
+    filter: blur(190px); 
+    transform: translateY(-50%);
+    z-index: -1; 
+}
+
+header::before {
+    left: -150px;
+}
+
+header::after {
+    right: -150px; 
 }
 
 header img {
@@ -117,23 +138,39 @@ nav ul li a.closed {
 main {
     display: flex;
     width: 100%;
-    height: 120vh;
+    height: 90vh;
     padding-bottom: 0.625rem ;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding-left: 100px;
+    padding-left: 120px;
+    margin-top: 10rem;    
    
 }
-main .para
-{
+main .para {
+    position: relative;
     display: flex;
-    justify-content:flex-start;  
+    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    width:50%;
+    width: 50%;
     height: 50%;
     gap: 3.5rem;
-   
+    border-radius: 912px;
+    background: transparent; /* On laisse le conteneur transparent */
+    margin-top: 100px;
+}
+
+main .para::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: #2C50AA;
+    filter: blur(250px);
+    z-index: -1; /* Le fond est en arrière-plan */
 }
 
 main .welcome{
@@ -162,7 +199,7 @@ main .welcome{
    max-width: 700px;
    height: 20px;
    line-height: normal;
-  
+   
 
 }
 .texte span{
