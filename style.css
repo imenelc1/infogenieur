@@ -90,6 +90,39 @@ nav ul li a.closed {
   color: var(--inabel-color);
   cursor: not-allowed;
 }
+nav ul li .sous-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--tow-color);
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 10px;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: 1 opacity 0.3s ease;
+}
+nav ul li:hover .sous-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  border-radius: 15px;
+}
+nav ul li .sous-menu li {
+  display: block;
+}
+nav ul li .sous-menu li a {
+  color: var(--body-color);
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  border-radius: 20px;
+}
+nav ul li .sous-menu li a:hover {
+  background-color: var(--one-color); 
+  color: white;
+}
 
 .contribute {
   display: flex;
@@ -117,16 +150,12 @@ nav ul li a.closed {
 main {
   display: flex;
 
-  height: 100%;
+  height:80vh;
   padding-top: 3.5rem;
 
   justify-content: center;
   align-items: center;
 
- /*background-image: url("images/grp2.png");*/
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 main .para {
   position: relative;
@@ -134,10 +163,10 @@ main .para {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   gap: 2rem;
   border-radius: 912px;
-  margin-top: 100px;
+
+  
 }
 
 main .para::before {
@@ -155,7 +184,7 @@ main .para::before {
 
 main .welcome {
   display: flex;
-  width: 641px;
+  width: 50%;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
@@ -164,16 +193,18 @@ main .welcome {
 .title {
   font-family: var(--menu-font);
   color: white;
-  font-size: 40px;
+  font-size: 80px;
 }
 
 .texte {
+  width: 541px;
   color: var(--white-color);
-  font-size: 18px;
+  text-align: center;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 7400;
+  font-weight: 200;
   line-height: normal;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.12px;
 }
 .texte span {
   background: linear-gradient(90deg, #2339ff 7.6%, #75a5ff 47.1%);
@@ -183,7 +214,7 @@ main .welcome {
   font-family: var(--body-font);
   font-size: 20px;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
 }
 .explore {
@@ -210,7 +241,7 @@ main .welcome {
 }
 
 
-
+/*********************TRANGLES************************/
 .triangle-container {
     position: absolute;
     width: 100%;
@@ -239,8 +270,8 @@ main .welcome {
   }
   
   .triangle2 {
-    top: 30%;
-    left: 20%;
+    top: 40%;
+    left: 60%;
     width: 40px;
     height: 60px;
     animation: move 7s infinite;
@@ -275,7 +306,7 @@ main .welcome {
   }
   .triangle7{
     top: 50%;
-    left: 50%;
+    left: 85%;
     width: 80px;
     height: 60px;
     animation: move 12s infinite;
@@ -296,9 +327,9 @@ main .welcome {
   }
   .triangle10{
     top: 80%;
-    left: 60%;
+    left: 80%;
     width: 100px;
-    height: 1400px;
+    height: 90px;
     animation: move 12s infinite;
   }
 
