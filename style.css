@@ -90,52 +90,20 @@ nav ul li a.closed {
   color: var(--inabel-color);
   cursor: not-allowed;
 }
-nav ul li .sous-menu {
-  display: none;
-  position: absolute;
-  background-color: var(--tow-color);
-  border-radius: 10px;
-  margin-top: 5px;
-  padding: 10px;
-  z-index: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transition: 1 opacity 0.3s ease;
-}
-nav ul li:hover .sous-menu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  border-radius: 15px;
-}
-nav ul li .sous-menu li {
-  display: block;
-}
-nav ul li .sous-menu li a {
-  color: var(--body-color);
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-  border-radius: 20px;
-}
-nav ul li .sous-menu li a:hover {
-  background-color: var(--one-color); 
-  color: white;
-}
 
 .contribute {
-  display: flex;
-  padding: 0.625rem 0.75rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  background-color: transparent;
-  border: none;
-  background: none;
-  color: var(--one-color);
-  transition: color 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color:var(--one-color);
+  text-decoration: none; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+  font-weight:400px;
 }
+
+
+
 
 .contribute:hover {
   background: var(--one-color);
@@ -146,16 +114,72 @@ nav ul li .sous-menu li a:hover {
   background: none;
 }
 
+nav ul li .sous-menu {
+  display: none;
+  position: absolute;
+  border-radius: 12px;
+  border: 0.5px solid linear-gradient(
+    104deg,
+    rgba(117, 165, 255, 0.2) 0%,
+    rgba(147, 185, 255, 0.2) 0.01%,
+    rgba(255, 255, 255, 0.2) 77.6%
+  ),;
+  background: linear-gradient(
+    104deg,
+    rgba(117, 165, 255, 0.2) 0%,
+    rgba(147, 185, 255, 0.2) 0.01%,
+    rgba(130, 154, 190, 0.2) 77.6%
+  ),
+  rgba(29, 29, 29, 0.05);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 1 opacity 0.3s ease;
+
+  
+}
+nav ul li:hover .sous-menu {
+  display: flex;
+  padding: 6px 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25px;
+  opacity: 1;
+  visibility: visible;
+  border-radius: 16px;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 20px;
+  
+}
+nav ul li .sous-menu li {
+  display: block;
+}
+nav ul li .sous-menu li a {
+  color: var(--white-color);
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  border-radius: 8px;
+}
+nav ul li .sous-menu li a:hover {
+
+  color:var(--one-color);
+}
+.navOpen-btn{
+  display: none;
+}
+
+
 /**********************************LE PARAGRAPHE********************************************************/
 main {
   display: flex;
 
-  height:80vh;
+  height: 80vh;
   padding-top: 3.5rem;
 
   justify-content: center;
   align-items: center;
-
 }
 main .para {
   position: relative;
@@ -164,9 +188,7 @@ main .para {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  border-radius: 912px;
-
-  
+  border-radius: 100px;
 }
 
 main .para::before {
@@ -240,141 +262,178 @@ main .welcome {
   letter-spacing: 2px;
 }
 
-
 /*********************TRANGLES************************/
 .triangle-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0; /* Assure que les triangles sont en arrière-plan */
-  }
-  
-  /* Positionnement des triangles */
-  .triangle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 84px;
-    height: 78px;
-  }
-  
-  /* Positionnements spécifiques */
-  .triangle1 {
-    top: 10%;
-    left: 10%;
-    width: 30px;
-    height: 50px;
-    animation: move 4s infinite;
-  }
-  
-  .triangle2 {
-    top: 40%;
-    left: 60%;
-    width: 40px;
-    height: 60px;
-    animation: move 7s infinite;
-  }
-  .triangle3{
-    top: 20%;
-    left: 40%;
-    width: 80px;
-    height: 100px;
-    animation: move 9s infinite;
-  }
-  .triangle4 {
-    top: 70%;
-    left: 10%;
-    width: 80px;
-    height: 70px;
-    animation: move 10s infinite;
-  }
-  .triangle5{
-    top: 80%;
-    left: 30%;
-    width: 60px;
-    height: 30px;
-    animation: move 12s infinite;
-  }
-  .triangle6 {
-    top: 10%;
-    left: 60%;
-    width: 90px;
-    height: 30px;
-    animation: move 10s infinite;
-  }
-  .triangle7{
-    top: 50%;
-    left: 85%;
-    width: 80px;
-    height: 60px;
-    animation: move 12s infinite;
-  }
-  .triangle8{
-    top: 30%;
-    left: 80%;
-    width: 30px;
-    height: 90px;
-    animation: move 12s infinite;
-  }
-  .triangle9{
-    top: 20%;
-    left: 20%;
-    width: 70px;
-    height: 70px;
-    animation: move 12s infinite;
-  }
-  .triangle10{
-    top: 80%;
-    left: 80%;
-    width: 100px;
-    height: 90px;
-    animation: move 12s infinite;
-  }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Assure que les triangles sont en arrière-plan */
+}
+
+/* Positionnement des triangles */
+.triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 78px;
+ 
+}
+
+/* Positionnements spécifiques */
+.triangle1 {
+  top: 10%;
+  left: 10%;
+  width: 30px;
+  height: 50px;
+  animation: move 4s infinite;
+}
+
+.triangle2 {
+  top: 40%;
+  left: 60%;
+  width: 40px;
+  height: 60px;
+  animation: move 7s infinite;
+}
+.triangle3 {
+  top: 20%;
+  left: 40%;
+  width: 80px;
+  height: 100px;
+  animation: move 9s infinite;
+}
+.triangle4 {
+  top: 70%;
+  left: 10%;
+  width: 80px;
+  height: 70px;
+  animation: move 10s infinite;
+}
+.triangle5 {
+  top: 80%;
+  left: 30%;
+  width: 60px;
+  height: 30px;
+  animation: move 12s infinite;
+}
+.triangle6 {
+  top: 10%;
+  left: 60%;
+  width: 90px;
+  height: 30px;
+  animation: move 10s infinite;
+}
+.triangle7 {
+  top: 50%;
+  left: 85%;
+  width: 80px;
+  height: 60px;
+  animation: move 12s infinite;
+}
+.triangle8 {
+  top: 30%;
+  left: 80%;
+  width: 30px;
+  height: 90px;
+  animation: move 12s infinite;
+}
+.triangle9 {
+  top: 20%;
+  left: 20%;
+  width: 70px;
+  height: 70px;
+  animation: move 12s infinite;
+}
+.triangle10 {
+  top: 80%;
+  left: 80%;
+  width: 100px;
+  height: 90px;
+  animation: move 12s infinite;
+}
+.triangle11 {
+  top: 40%;
+  left: 10%;
+  width: 50px;
+  height: 30px;
+  animation: move 12s infinite;
+}
 
 
-  
-  /* Animation */
-  @keyframes move {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+/* Animation */
+@keyframes move {
+  0% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 /* Différentes dimensions et positions pour chaque triangle */
 
 /* Animation */
 @keyframes move {
   0% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
   50% {
-      transform: translateY(20px);
+    transform: translateY(20px);
   }
   100% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 /****************************************MEDIA**************************************************/
-
 @media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 1.5rem;
+  .navOpen-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1000;
   }
 
-  nav ul {
+  .header {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Cacher le header en dehors de l'écran par défaut */
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    padding: 10rem 0 5rem;
+    display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333; /* Fond pour le menu */
+    transition: right 0.3s ease-in-out;
   }
 
-  .contribute {
-    padding: 0.5rem 0.625rem;
+  .header.open {
+    right: 0; /* Afficher le header lorsqu'il est ouvert */
+  }
+
+  /* Masquer le logo, le menu, et le bouton contribute par défaut */
+  .logo, 
+  .contribute, 
+  .menu-list {
+    display: none;
+  }
+
+  /* Afficher ces éléments quand le menu est ouvert */
+  .header.open .logo, 
+  .header.open .contribute, 
+  .header.open .menu-list {
+    display: block;
   }
 }
