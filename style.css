@@ -403,6 +403,8 @@ main .welcome {
   }
 
   .header {
+    border-radius: 3.375rem;
+    border: 0.3px solid #3F1F55;
     position: fixed;
     top: 0;
     right: -100%; /* Cacher le header en dehors de l'écran par défaut */
@@ -415,12 +417,14 @@ main .welcome {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #333; /* Fond pour le menu */
+    background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
     transition: right 0.3s ease-in-out;
+    
   }
 
   .header.open {
     right: 0; /* Afficher le header lorsqu'il est ouvert */
+    
   }
 
   /* Masquer le logo, le menu, et le bouton contribute par défaut */
@@ -431,9 +435,19 @@ main .welcome {
   }
 
   /* Afficher ces éléments quand le menu est ouvert */
+  .header.open .logo{
+    margin-top: 0;
+  }
   .header.open .logo, 
   .header.open .contribute, 
   .header.open .menu-list {
     display: block;
+    margin-bottom: 14px;
+
+  }
+  .header.open .menu-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
