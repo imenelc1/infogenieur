@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infogenieur</title>
     <link rel="stylesheet" href="styleMain.css" />
-    <link rel="stylesheet" href="firstYear.css" />
+    <link rel="stylesheet" href="annee.css" />
 
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -23,21 +23,21 @@
           <div class="menu">
             <ul class="menu-list">
               <li>
-                <a href="firstYear.html">1st Year</a>
+                <a class="first" href="javascript:void(0);" onclick="afficherAnnee(1)">1st Year</a>
               </li>
               <li>
-                <a class="first" href="secondYear.html">2nd Year</a>
+                <a href="javascript:void(0);" onclick="afficherAnnee(2)">2nd Year</a>
               </li>
               <li>
-                <a href="thirdYear.html">3rd Year</a>
+                <a href="javascript:void(0);" onclick="afficherAnnee(3)">3rd Year</a>
               </li>
               <li>
-                <a href="forthYear.html">4th Year</a>
+                <a href="javascript:void(0);" onclick="afficherAnnee(4)">4th Year</a>
               </li>
               <li>
-                <a href="fifthYear.html">5th Year</a>
+                <a href="javascript:void(0);" onclick="afficherAnnee(5)">5th Year</a>
               </li>
-              <li><a href="more.html">More </a></li>
+              <li><a href="more.html">More</a></li>
             </ul>
           </div>
         </nav>
@@ -48,12 +48,9 @@
           >CONTRIBUTE</a
         >
       </header>
-      <a class="explore" href="thirdYear.html">
+      <a class="explore" href="javascript:void(0);" onclick="afficherAnnee(2)">
         <img src="images/Ornament 37.svg" alt="" class="exp" />
-        <a class="back" href="firstYear.html">
-            <img src="images/backButt.svg" alt="" class="exp" />
-          </a>
-      </a>
+    </a>    
       <!-- Le bouton pour ouvrir le menu -->
       <i class="bx bx-menu navOpen-btn"></i>
       <div class="triangle-container"></div>
@@ -367,6 +364,79 @@
           </linearGradient>
         </defs>
       </svg>
+      <section id="annee1" class="annee">
+      <h1>1st Year</h1>
+      <div class="modules">
+      <svg class="s1" xmlns="http://www.w3.org/2000/svg" width="370" height="700" viewBox="0 0 497 807" fill="none">
+        <path d="M0 248.5C0 111.257 111.257 0 248.5 0C385.743 0 497 111.257 497 248.5V558.5C497 695.743 385.743 807 248.5 807C111.257 807 0 695.743 0 558.5V248.5Z" fill="#75A5FF" fill-opacity="0.24"/>
+        <text class="semestre" x="50%" y="10%" dy=".3em">S 01</text>
+        <text class="module-text" x="63%" y="20%" dy=".3em">Algorithms & data structures 1</text>
+        <text class="module-text" x="48%" y="30%" dy=".3em">Mathematic analysis 1</text>
+        <text class="module-text" x="53%" y="40%" dy=".3em">Computer architecture 1</text>
+        <text class="module-text" x="71%" y="50%" dy=".3em">Introduction to operating system 1</text>
+        <text class="module-text" x="27%" y="60%" dy=".3em">Algebra 1</text>
+        <text class="module-text" x="63%" y="70%" dy=".3em">Written expression technique</text>
+        <text class="module-text" x="40%" y="80%" dy=".3em">Office and web</text>
+        </svg>
+        <svg class="s2" xmlns="http://www.w3.org/2000/svg" width="370" height="700" viewBox="0 0 497 807" fill="none">
+            <path d="M0 248.5C0 111.257 111.257 0 248.5 0C385.743 0 497 111.257 497 248.5V558.5C497 695.743 385.743 807 248.5 807C111.257 807 0 695.743 0 558.5V248.5Z" fill="#75A5FF" fill-opacity="0.24"/>
+            <text class="semestre" x="50%" y="10%" dy=".3em">S 02</text>
+        <text class="module-text" x="63%" y="20%" dy=".3em">Algorithms & data structures 2</text>
+        <text class="module-text" x="48%" y="30%" dy=".3em">Mathematic analysis 2</text>
+        <text class="module-text" x="53%" y="40%" dy=".3em">Mathematical logic</text>
+        <text class="module-text" x="71%" y="50%" dy=".3em">Introduction to operating system 2</text>
+        <text class="module-text" x="27%" y="60%" dy=".3em">Algebra 2</text>
+        <text class="module-text" x="63%" y="70%" dy=".3em">Speaking  technique</text>
+        <text class="module-text" x="40%" y="80%" dy=".3em">Probabilities & statistics 1 </text>
+            </svg>
+          </section>
+          <section id="annee2" class="annee" style="display: none;">
+            <h1>2nd Year</h1>
+            <a class="back" href="javascript:void(0);" onclick="afficherAnnee(1)">
+              <img src="images/backButt.svg" alt="back" >
+            </a>
+            <a class="explore" href="javascript:void(0);" onclick="afficherAnnee(3)">
+              <img src="images/Ornament 37.svg" alt=""  />
+          </a>  
+            </section>
+            <section id="annee3" class="annee" style="display: none;">
+              <h1>3rd Year</h1>
+              <div class="modules">
+                <!-- Contenu de la troisième année -->
+              </div>
+              <a class="back" href="javascript:void(0);" onclick="afficherAnnee(2)">
+                <img src="images/backButt.svg" alt="back" >
+              </a>
+              <a class="explore" href="javascript:void(0);" onclick="afficherAnnee(4)">
+                <img src="images/Ornament 37.svg" alt="Next" />
+              </a>
+            </section>
+      
+            <!-- Section de la 4ème année -->
+            <section id="annee4" class="annee" style="display: none;">
+              <h1>4th Year</h1>
+              <div class="modules">
+                <!-- Contenu de la quatrième année -->
+              </div>
+              <a class="back" href="javascript:void(0);" onclick="afficherAnnee(3)">
+                <img src="images/backButt.svg" alt="back">
+              </a>
+              <a class="explore" href="javascript:void(0);" onclick="afficherAnnee(5)">
+                <img src="images/Ornament 37.svg" alt="Next">
+              </a>
+            </section>
+            <!-- Section de la 5ème année -->
+            <section id="annee5" class="annee" style="display: none;">
+              <h1>5th Year</h1>
+              <div class="modules">
+                <!-- Contenu de la cinquième année -->
+              </div>
+              <a class="back" href="javascript:void(0);" onclick="afficherAnnee(4)">
+                <img src="images/backButt.svg" alt="back">
+              </a>
+            </section>
+
+    </div>
     </section>
     <script src="script.js"></script>
   </body>
