@@ -47,4 +47,3 @@ function afficherAnnee(annee) {
   } else {
     document.querySelector('.explore').style.display = 'block';
   }
-

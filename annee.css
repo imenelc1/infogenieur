@@ -72,6 +72,9 @@
   .modules .s2{
     margin-right: 9.8rem;
   }
+  .modules .s9{
+    margin-left:12rem ;
+  }
   .semestre {
     font-family:var(--body-font); 
     font-size: 40px;               
@@ -83,4 +86,5 @@
   font-size: 20px;              
   fill: white;                
   text-anchor: end; 
+  cursor: pointer;
 }
