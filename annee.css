@@ -65,12 +65,14 @@
     color: white;
     
   }
-  .modules .s1{
-    margin-left: 9.8rem;
-    margin-right: 5rem;
-  }
-  .modules .s2{
-    margin-right: 9.8rem;
+  .l1{
+    Width: 149px;
+    Height:25px;
+    top:36px;
+    left:500rem;
+    border:3px;
+    stroke-width: 3px;
+
   }
   .modules .s9{
     margin-left:12rem ;
