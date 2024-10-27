@@ -126,16 +126,107 @@
       position: relative;
       z-index: 1;
     }
-  .modul_rect{
+    .modul_rect1 {
+      position: absolute;
+      top: 1rem;
+      left: 40rem;
       width: 15rem;
       height: 2.65338rem;
-      position: absolute; 
-      top: 5.18px;
-      left: 21px;
-      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);      backdrop-filter: blur(15px);
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
       border-radius: 28px;
-  }
- 
+    }
+    
+    .modul_rect2 {
+      position: absolute;
+      top: 6.5rem; /* Ajout de 4rem d'espacement */
+      left: 41rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect3 {
+      position: absolute;
+      top: 10rem; /* Ajout de 4rem d'espacement */
+      left: 45rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect4 {
+      position: absolute;
+      top: 14.5rem; /* Ajout de 4rem d'espacement */
+      left: 47rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect5 {
+      position: absolute;
+      top: 21rem; /* Ajout de 4rem d'espacement */
+      left: 46rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect6 {
+      position: absolute;
+      top: 24.5rem; /* Ajout de 4rem d'espacement */
+      left: 44rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect7 {
+      position: absolute;
+      top: 28rem; /* Ajout de 4rem d'espacement */
+      left: 40.5rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    
+    .modul_rect8 {
+      position: absolute;
+      top: 33.5rem; /* Ajout de 4rem d'espacement */
+      left: 36rem;
+      width: 15rem;
+      height: 2.65338rem;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+      backdrop-filter: blur(15px);
+      border-radius: 28px;
+    }
+    .icon {
+      width: 50px;
+      height: 50px;
+      background-color: #274188;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .icon img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   .semestre {
     font-family:var(--body-font); 
     font-size: 40px;               
