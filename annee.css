@@ -65,18 +65,77 @@
     color: white;
     
   }
-  .l1{
-    Width: 149px;
-    Height:25px;
-    top:36px;
-    left:500rem;
-    border:3px;
-    stroke-width: 3px;
-
+  #annee1 {
+    position: relative;
   }
-  .modules .s9{
-    margin-left:12rem ;
+  
+  .l1 {
+    position: absolute;
+    top: 36px;
+    left: 503px;
   }
+  .l2 {
+    position: absolute;
+    top: 107px;
+    left: 555px;
+  }
+  .l3 {
+    position: absolute;
+    top: 180.5px;
+    left: 602px;
+  }
+  .l4 {
+    position: absolute;
+    top: 252px;
+    left: 617px;
+  }
+  .l5 {
+    position: absolute;
+    top: 333px;
+    left: 613px;
+  }
+  .l6 {
+    position: absolute;
+    top: 408px;
+    left: 579px;
+  }
+  .l7 {
+    position: absolute;
+    top: 468px;
+    left: 538px;
+  }
+  .l8 {
+    position: absolute;
+    top: 533px;
+    left: 467px;
+  }
+  .rectangle{
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      height: 36.875rem;
+      max-width: 1200px;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(104deg, rgba(117, 165, 255, 0.10) 0%, rgba(147, 185, 255, 0.10) 0.01%, rgba(255, 255, 255, 0.10) 77.6%);
+      border-radius: 54px;
+      margin: 0.625rem auto;
+      font-size: 1rem;
+      white-space: nowrap;
+      padding: 0.625rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+  .modul_rect{
+      width: 15rem;
+      height: 2.65338rem;
+      position: absolute; 
+      top: 5.18px;
+      left: 21px;
+      background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);      backdrop-filter: blur(15px);
+      border-radius: 28px;
+  }
+ 
   .semestre {
     font-family:var(--body-font); 
     font-size: 40px;               
