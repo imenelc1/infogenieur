@@ -68,6 +68,29 @@
   #annee1 {
     position: relative;
   }
+  /*.circle {
+    position: absolute;
+    width: 505.63px; 
+    height: 538.26px; 
+    top: 15px;
+    left: 111.29px;
+    border-radius: 33.64138rem;
+    border: 5px dashed #2339FF;
+    opacity: 1; 
+  }*/
+  .circle {
+    position: absolute;
+    width: 505.63px; /* ou 31.60219rem */
+    height: 538.26px; /* ou 33.64138rem */
+    top: 15px;
+    left: 111.29px;
+    border-radius: 50%; /* Cercle parfait */
+    border: 5px dashed transparent; /* Initialement transparent */
+  
+    /* Bord visible d'un seul côté avec un gradient */
+    background: conic-gradient(from 90deg, #2339FF 0%, #2339FF 50%, transparent 50%, transparent 100%);
+  }
+  
   
   .l1 {
     position: absolute;
@@ -76,8 +99,8 @@
   }
   .l2 {
     position: absolute;
-    top: 107px;
-    left: 555px;
+    top: 98px;
+    left: 560px;
   }
   .l3 {
     position: absolute;
@@ -91,7 +114,7 @@
   }
   .l5 {
     position: absolute;
-    top: 333px;
+    top: 310px;
     left: 613px;
   }
   .l6 {
@@ -101,7 +124,7 @@
   }
   .l7 {
     position: absolute;
-    top: 468px;
+    top: 475px;
     left: 538px;
   }
   .l8 {
@@ -109,6 +132,37 @@
     top: 533px;
     left: 467px;
   }
+  #annee1 .l6 {
+    position: absolute;
+    top: 420px;
+    left: 579px;
+  }
+  #annee1 .l7 {
+    position: absolute;
+    top: 510px;
+    left: 538px;
+  }
+  #annee1 .modul_rect6 {
+    position: absolute;
+    top: 24.8rem; /* Ajout de 4rem d'espacement */
+    left: 44rem;
+    width: 15rem;
+    height: 2.65338rem;
+    background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+    backdrop-filter: blur(15px);
+    border-radius: 28px;
+  }
+  #annee1 .modul_rect7 {
+    position: absolute;
+    top: 31rem;
+    left: 40rem;
+    width: 15rem;
+    height: 2.65338rem;
+    background: linear-gradient(93deg, rgba(117, 165, 255, 0.5) 11.48%, rgba(70, 99, 153, 0.5) 100.98%);
+    backdrop-filter: blur(15px);
+    border-radius: 28px;
+  }
+  
   .rectangle{
       display: flex;
       flex-wrap: wrap;
@@ -139,7 +193,7 @@
     
     .modul_rect2 {
       position: absolute;
-      top: 6.5rem; /* Ajout de 4rem d'espacement */
+      top: 6rem; /* Ajout de 4rem d'espacement */
       left: 41rem;
       width: 15rem;
       height: 2.65338rem;
@@ -172,7 +226,7 @@
     
     .modul_rect5 {
       position: absolute;
-      top: 21rem; /* Ajout de 4rem d'espacement */
+      top: 19.5rem; /* Ajout de 4rem d'espacement */
       left: 46rem;
       width: 15rem;
       height: 2.65338rem;
@@ -194,7 +248,7 @@
     
     .modul_rect7 {
       position: absolute;
-      top: 28rem; /* Ajout de 4rem d'espacement */
+      top: 29rem; /* Ajout de 4rem d'espacement */
       left: 40.5rem;
       width: 15rem;
       height: 2.65338rem;
@@ -214,13 +268,15 @@
       border-radius: 28px;
     }
     .icon {
-      width: 50px;
-      height: 50px;
+      width: 42px;
+      height: 42px;
       background-color: #274188;
-      border-radius: 30px;
+      border-radius: 21px;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      top: 1px; 
     }
     
     .icon img {
