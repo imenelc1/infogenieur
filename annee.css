@@ -31,6 +31,7 @@
     line-height: normal;
     letter-spacing: 2px;
   }
+ 
   .back {
     position: fixed;
     left: 25px;
@@ -68,30 +69,12 @@
   #annee1 {
     position: relative;
   }
-  /*.circle {
+
+  .eclipse{
     position: absolute;
-    width: 505.63px; 
-    height: 538.26px; 
     top: 15px;
     left: 111.29px;
-    border-radius: 33.64138rem;
-    border: 5px dashed #2339FF;
-    opacity: 1; 
-  }*/
-  .circle {
-    position: absolute;
-    width: 505.63px; /* ou 31.60219rem */
-    height: 538.26px; /* ou 33.64138rem */
-    top: 15px;
-    left: 111.29px;
-    border-radius: 50%; /* Cercle parfait */
-    border: 5px dashed transparent; /* Initialement transparent */
-  
-    /* Bord visible d'un seul côté avec un gradient */
-    background: conic-gradient(from 90deg, #2339FF 0%, #2339FF 50%, transparent 50%, transparent 100%);
   }
-  
-  
   .l1 {
     position: absolute;
     top: 36px;
@@ -130,7 +113,7 @@
   .l8 {
     position: absolute;
     top: 533px;
-    left: 467px;
+    left: 457px;
   }
   #annee1 .l6 {
     position: absolute;

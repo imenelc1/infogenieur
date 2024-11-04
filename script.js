@@ -1,14 +1,26 @@
 const body = document.querySelector('body');
-const header = body.querySelector('.header');
-const navOpenBtn = body.querySelector('.navOpen-btn');
+const header = document.querySelector('.header');
+const navOpenBtn = document.querySelector('.navOpen-btn');
+const navCloseBtn = document.querySelector('.navClose-btn');
 
-// Menu déroulant pour la navigation
+// Ouvrir le menu
 if (header && navOpenBtn) {
   navOpenBtn.addEventListener("click", () => {
-    header.classList.toggle("open");
-    body.style.overflowY = header.classList.contains("open") ? "hidden" : "auto";
+    header.classList.add("open");
+    body.style.overflowY = "hidden";
+    navOpenBtn.style.display = "none"; // Masquer le bouton navOpen
   });
 }
+
+// Fermer le menu
+if (header && navCloseBtn) {
+  navCloseBtn.addEventListener("click", () => {
+    header.classList.remove("open");
+    body.style.overflowY = "scroll";
+    navOpenBtn.style.display = "block"; // Afficher à nouveau le bouton navOpen
+  });
+}
+
 
 // Fonction pour afficher l'année en fonction de l'ID passé
 function afficherAnnee(annee) {
