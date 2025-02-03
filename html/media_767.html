@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Infogenieur</title>
-    <link rel="stylesheet" href="styleMain.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/annee.css" />
+    <link rel="stylesheet" href="../css/media_767.css" />
+
+
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -14,77 +18,44 @@
   <body>
     <section class="sec">
       <header class="header">
-        <a href="index.html" class="logo">
-          <img src="images/FULL LOGO 4.png" alt="Logo" />
+        <a href="../html/index.html" class="logo">
+          <img src="../images/FULL LOGO 4.png" alt="Logo" />
         </a>
         <nav>
-          <div class="menu navMenu"> <!-- Ajout de la classe navMenu ici -->
+          <div class="menu">
             <ul class="menu-list">
               <li>
-                <a href="annee.html?year=1">1st Year</a>
-                <ul class="sous-menu">
-                  <li><a href="annee.html?year=1&semestre=1">S 01</a></li>
-                  <li><a href="annee.html?year=1&semestre=2">S 02</a></li>
-                </ul>
+                <a class="first" href="javascript:void(0);" onclick="afficherAnnee(1)">1st Year</a>
               </li>
               <li>
-                <a href="annee.html?year=2">2nd Year</a>
-                <ul class="sous-menu">
-                  <li><a href="annee.html?year=2&semestre=1">S 01</a></li>
-                  <li><a href="annee.html?year=2&semestre=2">S 02</a></li>
-                </ul>
+                <a href="javascript:void(0);" onclick="afficherAnnee(2)">2nd Year</a>
               </li>
               <li>
-                <a href="annee.html?year=3">3rd Year</a>
-                <ul class="sous-menu">
-                  <li><a href="annee.html?year=3&semestre=1">S 01</a></li>
-                  <li><a href="annee.html?year=3&semestre=2">S 02</a></li>
-                </ul>
+                <a href="javascript:void(0);" onclick="afficherAnnee(3)">3rd Year</a>
               </li>
               <li>
-                <a href="annee.html?year=4">4th Year</a>
-                <ul class="sous-menu">
-                  <li><a href="annee.html?year=4&semestre=1">S 01</a></li>
-                  <li><a href="annee.html?year=4&semestre=2">S 02</a></li>
-                </ul>
+                <a href="javascript:void(0);" onclick="afficherAnnee(4)">4th Year</a>
               </li>
               <li>
-                <a href="annee.html?year=5">5th Year</a>
-                <ul class="sous-menu">
-                  <li><a href="annee.html?year=5&semestre=1">S 01</a></li>
-                  <li><a href="annee.html?year=5&semestre=2">S 02</a></li>
-                </ul>
+                <a href="javascript:void(0);" onclick="afficherAnnee(5)">5th Year</a>
               </li>
-              <li><a class="first" href="more.html">More</a></li>
+              <li><a href="more.html">More</a></li>
             </ul>
           </div>
         </nav>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSem88-jkswGNAxFpHyvmI7P_y-ZdrUcOAAGPdAl9lHXuivn9g/viewform?usp=pp_url"
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSem88-jkswGNAxFpHyvmI7P_y-ZdrUcOAAGPdAl9lHXuivn9g/viewform?usp=pp_url"
           target="_blank"
-          class="contribute">CONTRIBUTE</a>
-      
-        <!-- Boutons pour ouvrir/fermer le menu -->
-        <i class='bx bx-x navClose-btn'></i>
+          class="contribute"
+          >CONTRIBUTE</a
+        >
       </header>
-      <!-- Bouton pour ouvrir le menu en dehors de l'en-tête -->
+      <a class="explore" href="javascript:void(0);" onclick="afficherAnnee(2)">
+       <img src="../images/Ornament 37.svg" alt="" class="exp" />
+    </a>    
+      <!-- Le bouton pour ouvrir le menu -->
       <i class="bx bx-menu navOpen-btn"></i>
-     
-      <main>
-        <div class="para">
-          <div class="welcome">
-            <div class="title">INFOGENIEUR</div>
-            <div class="texte">
-              Access all your<span> computer engineering</span> study resources
-              and semester-based modules in one organized platform for a smooth
-              academic journey.
-            </div>
-          </div>
-          <a class="explore" href="annee.html">
-            Explore <img src="images/Ornament 37.svg" alt="" class="exp" />
-          </a>
-        </div>
-      </main>
-      <div class="triangle-container"></div>
+      <div class="triangle-container">
       <svg
         class="triangle triangle1"
         xmlns="http://www.w3.org/2000/svg"
@@ -395,8 +366,174 @@
           </linearGradient>
         </defs>
       </svg>
+    </div>
+
+      <!-- Section de la 1ere année -->
+      <section id="annee1" class="annee">
+        <h1>SEMESTER 01</h1>
+        <div class="s-one">
+          
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+            <div class="modul_rect ">
+                <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+            </div>
+        </div>
+
+        <div class="semestre-tow">
+          
+        </div>
     </section>
-    <script src="script.js"></script>
+    
+       
+     
+     
+             <!-- Section de la 2ème année -->
+          <section id="annee2" class="annee" ">
+            <div class="s-one">
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+              <div class="modul_rect ">
+                  <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+              </div>
+          </div>
+              </section>
+
+
+
+
+
+            <!-- Section de la 3ème année -->
+            <section id="annee3" class="annee">
+              <div class="s-one">
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+            </div>
+            </section>
+      
+            <!-- Section de la 4ème année -->
+            <section id="annee4" class="annee" style="display: none;">
+              <div class="s-one">
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+            </div>
+            </section>
+            <!-- Section de la 5ème année -->
+            <section id="annee5" class="annee" style="display: none;">
+              <div class="s-one">
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+                <div class="modul_rect ">
+                    <div class="icon"><img src="../images/icon.png" alt="icon"></div>
+                </div>
+            </div>
+            </section>
+
+    
+    </section>
+    <script src="../js/script.js"></script>
+    
+    
   </body>
 </html>
-

@@ -48,7 +48,7 @@ header {
   margin: 0.625rem auto;
   font-size: 1rem;
   white-space: nowrap;
-  padding: 0.625rem 2rem;
+  padding: 6px 30px;
   position: relative;
   z-index: 1;
 }
@@ -242,10 +242,10 @@ main .welcome {
 }
 .explore {
   display: flex;
-  padding: 12px 24px;
+  padding: 12px 20px;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
   border-radius: 34px;
   border: none;
   background: linear-gradient(
@@ -256,13 +256,18 @@ main .welcome {
   backdrop-filter: blur(8px);
   -filter: blur(8px);
   color: var(--white-color);
-  font-size: 16px;
+  font-size: 20px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   line-height: normal;
   letter-spacing: 2px;
   cursor: pointer;
   text-decoration: none;
+}
+.explore img.exp {
+  margin-left: 8px; 
+
+  vertical-align: middle; 
 }
 
 /*********************TRANGLES************************/
@@ -272,98 +277,27 @@ main .welcome {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: -1; /* Assure que les triangles sont en arrière-plan */
+  z-index: -1; /* Arrière-plan */
 }
 
-/* Positionnement des triangles */
 .triangle {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 84px;
   height: 78px;
- 
+  opacity: 0.5;
+  animation: move 8s infinite;
 }
 
-/* Positionnements spécifiques */
-.triangle1 {
-  top: 10%;
-  left: 10%;
-  width: 30px;
-  height: 50px;
-  animation: move 4s infinite;
-}
-
-.triangle2 {
-  top: 40%;
-  left: 60%;
-  width: 40px;
-  height: 60px;
-  animation: move 7s infinite;
-}
-.triangle3 {
-  top: 20%;
-  left: 40%;
-  width: 80px;
-  height: 100px;
-  animation: move 9s infinite;
-}
-.triangle4 {
-  top: 70%;
-  left: 10%;
-  width: 80px;
-  height: 70px;
-  animation: move 10s infinite;
-}
-.triangle5 {
-  top: 80%;
-  left: 30%;
-  width: 60px;
-  height: 30px;
-  animation: move 12s infinite;
-}
-.triangle6 {
-  top: 10%;
-  left: 60%;
-  width: 90px;
-  height: 30px;
-  animation: move 10s infinite;
-}
-.triangle7 {
-  top: 50%;
-  left: 85%;
-  width: 80px;
-  height: 60px;
-  animation: move 12s infinite;
-}
-.triangle8 {
-  top: 30%;
-  left: 80%;
-  width: 30px;
-  height: 90px;
-  animation: move 12s infinite;
-}
-.triangle9 {
-  top: 20%;
-  left: 20%;
-  width: 70px;
-  height: 70px;
-  animation: move 12s infinite;
-}
-.triangle10 {
-  top: 80%;
-  left: 80%;
-  width: 100px;
-  height: 90px;
-  animation: move 12s infinite;
-}
-.triangle11 {
-  top: 40%;
-  left: 10%;
-  width: 50px;
-  height: 30px;
-  animation: move 12s infinite;
-}
+.triangle1 { top: 10%; left: 10%; width: 30px; height: 50px; animation-duration: 4s; }
+.triangle2 { top: 40%; left: 60%; width: 40px; height: 60px; animation-duration: 7s; }
+.triangle3 { top: 20%; left: 40%; width: 80px; height: 100px; animation-duration: 9s; }
+.triangle4 { top: 70%; left: 10%; width: 80px; height: 70px; animation-duration: 10s; }
+.triangle5 { top: 80%; left: 30%; width: 60px; height: 30px; animation-duration: 12s; }
+.triangle6 { top: 10%; left: 60%; width: 90px; height: 30px; animation-duration: 10s; }
+.triangle7 { top: 50%; left: 85%; width: 80px; height: 60px; animation-duration: 12s; }
+.triangle8 { top: 30%; left: 80%; width: 30px; height: 90px; animation-duration: 12s; }
+.triangle9 { top: 20%; left: 20%; width: 70px; height: 70px; animation-duration: 12s; }
+.triangle10 { top: 80%; left: 80%; width: 100px;}
 
 
 /* Animation */
@@ -390,170 +324,5 @@ main .welcome {
   }
   100% {
     transform: translateY(0px);
-  }
-}
-/*MEDIA*/
-@media screen and (max-width: 768px) {
-  .navClose-btn,
-  .navOpen-btn {
-    display: block;
-  }
-  .navOpen-btn {
-    display: block;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-    z-index: 1000;
-  }
-  .navClose-btn {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    font-size: 2.5rem;
-    cursor: pointer;
-  }
-  .header.open {
-    right: 0;
-  }
-  .header {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    max-width: 200px;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
-    box-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.15) inset;
-    backdrop-filter: blur(3px);
-    border-radius: 3.375rem;
-    border: 0.3px solid #3F1F55;
-
-    transition: right 0.3s ease-in-out;
-  }
-
-
-  /* Logo positionné en haut */
-  .logo {
-    display: block;
-    margin-bottom: auto; /* Laisser de l'espace en dessous du logo */
-  }
-
-  /* Centrer le menu verticalement */
-  .menu {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Prendre tout l'espace disponible */
-    justify-content: center; /* Centrer le menu verticalement */
-    align-items: center;
-  }
-
-  .menu-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-  nav ul li .sous-menu {
-    display: block;
-    position: absolute;
-    border-radius: 12px;
-   left: -1px;
-   
-
-    border: 0.5px solid linear-gradient(
-      104deg,
-      rgba(117, 165, 255, 0.2) 0%,
-      rgba(147, 185, 255, 0.2) 0.01%,
-      rgba(255, 255, 255, 0.2) 77.6%
-    ),;
-    background: linear-gradient(
-      104deg,
-      rgba(117, 165, 255, 0.2) 0%,
-      rgba(147, 185, 255, 0.2) 0.01%,
-      rgba(130, 154, 190, 0.2) 77.6%
-    ),
-    rgba(29, 29, 29, 0.05);
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1 opacity 0.3s ease;
-    transform: translateY(100px); 
-  
-    
-  }
-  nav ul li:hover .sous-menu {
-    display: flex;
-    padding: 6px 4px;
-   
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25px;
-    opacity: 1;
-    visibility: visible;
-    border-radius: 16px;
-    font-size: 15px;
-    font-style: italic;
-    font-weight: 20px;
-    transform: translateY(0); /* Remonte de 1px au survol */
-    opacity: 1;
-        
-  }
-  nav ul li .sous-menu li {
-    display: block;
-  }
-  nav ul li .sous-menu li a {
-    color: var(--white-color);
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    border-radius: 8px;
-  }
-  nav ul li .sous-menu li a:hover {
-  
-    color:var(--one-color);
-  }
-  .navOpen-btn{
-    display: none;
-  }
-  
-  /* Bouton contribute en bas */
-  .contribute {
-    margin-top: auto; /* Le placer en bas */
-    margin-bottom: 2rem; /* Espacement par rapport au bas */
-    display: block;
-  }
-
-  /* Masquer logo, menu et bouton contribute par défaut */
-  .logo,
-  .contribute,
-  .menu-list {
-    display: none;
-  }
-
-  /* Afficher les éléments une fois le menu ouvert */
-  .header.open .logo,
-  .header.open .contribute,
-  .header.open .menu-list {
-    display: flex;
-  }
-  .header.open .menu-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  .para .welcome .title{
-    font-size: 40px;
-  }
-  .para .welcome .texte{
-    font-size: 14px;
-    width: 500px;
   }
 }
