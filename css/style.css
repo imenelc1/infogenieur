@@ -11,7 +11,8 @@
   --body-font: "Red Hat Display", sans-serif;
   --white-color: #ffffff;
   --body-color: #101221;
-  --one-color: #75a5ff;
+  --one-color: #467799;
+
   --tow-color: #2339ff;
   --inabel-color: #8888;
 }
@@ -48,7 +49,7 @@ header {
   margin: 0.625rem auto;
   font-size: 1rem;
   white-space: nowrap;
-  padding: 6px 30px;
+  padding: 0.625rem 2rem;
   position: relative;
   z-index: 1;
 }
@@ -170,17 +171,26 @@ nav ul li .sous-menu li a:hover {
 .navOpen-btn{
   display: none;
 }
+.menu-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
 
 
 /**********************************LE PARAGRAPHE********************************************************/
 main {
   display: flex;
-
+  width: 100%;
   height: 80vh;
   padding-top: 3.5rem;
-
   justify-content: center;
   align-items: center;
+  
 }
 main .para {
   position: relative;
@@ -324,5 +334,273 @@ main .welcome {
   }
   100% {
     transform: translateY(0px);
+  }
+}
+/****************************************MEDIA**************************************************/
+@media screen and (max-width: 768px) {
+  .navOpen-btn {
+    display: block;
+    position: fixed;
+    top: 40px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1000;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    max-width: 150px;
+    width: 90%;
+    height: 95%;
+    z-index: 999;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(104deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
+    box-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.15) inset;
+    backdrop-filter: blur(3px);
+    border-radius: 3.375rem;
+    border: 0.3px solid #3F1F55;
+
+    transition: right 0.3s ease-in-out;
+  }
+
+  .header.open {
+    right: 0;
+  }
+
+  /* Logo positionné en haut */
+  .logo {
+    display: block;
+    margin-bottom: auto; /* Laisser de l'espace en dessous du logo */
+  }
+
+  /* Centrer le menu verticalement */
+  .menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow:1; /* Prendre tout l'espace disponible */
+    justify-content: center; /* Centrer le menu verticalement */
+    align-items: center;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  nav ul li .sous-menu {
+    display: block;
+    position: absolute;
+    border-radius: 12px;
+   left: -1px;
+   
+
+    border: 0.5px solid linear-gradient(
+      104deg,
+      rgba(117, 165, 255, 0.2) 0%,
+      rgba(147, 185, 255, 0.2) 0.01%,
+      rgba(255, 255, 255, 0.2) 77.6%
+    ),;
+    background: linear-gradient(
+      104deg,
+      rgba(117, 165, 255, 0.2) 0%,
+      rgba(147, 185, 255, 0.2) 0.01%,
+      rgba(130, 154, 190, 0.2) 77.6%
+    ),
+    rgba(29, 29, 29, 0.05);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1 opacity 0.3s ease;
+    transform: translateY(100px); 
+  
+    
+  }
+  nav ul li:hover .sous-menu {
+    display: flex;
+    padding: 6px 4px;
+   
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25px;
+    opacity: 1;
+    visibility: visible;
+    border-radius: 16px;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 20px;
+    transform: translateY(0); /* Remonte de 1px au survol */
+    opacity: 1;
+    
+    
+  }
+  #content.blurred {
+    filter: blur(5px);
+    pointer-events: none; /* Désactive les interactions avec le contenu */
+    transition: filter 0.3s ease;
+  }
+  
+  nav ul li .sous-menu li {
+    display: block;
+  }
+  nav ul li .sous-menu li a {
+    color: var(--white-color);
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+  }
+  nav ul li .sous-menu li a:hover {
+  
+    color:var(--one-color);
+  }
+  .navOpen-btn{
+    display: none;
+  }
+
+  /* Bouton contribute en bas */
+  .contribute {
+    margin-top: auto; /* Le placer en bas */
+    margin-bottom: 2rem; /* Espacement par rapport au bas */
+    display: block;
+  }
+
+  /* Masquer logo, menu et bouton contribute par défaut */
+  .logo,
+  .contribute,
+  .menu-list {
+    display: none;
+  }
+
+  /* Afficher les éléments une fois le menu ouvert */
+  .header.open .logo,
+  .header.open .contribute,
+  .header.open .menu-list {
+    display: flex;
+  }
+  .header.open .menu-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .para .welcome .title{
+    font-size: 40px;
+  }
+  .para .welcome .texte{
+    font-size: 14px;
+    width: 500px;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 1rem;
+  }
+
+  header nav ul {
+    gap: 2.5rem;
+  }
+  header img {
+    width: 62px;
+    height: 30px;
+  }
+
+  .contribute {
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+  .contribute:hover {
+    background: var(--one-color);
+    border-radius: 30px;
+    border: 1px solid;
+    background: none;
+  }
+}
+/* Petits écrans (tablettes et téléphones) */
+@media screen and (max-width: 768px) {
+  main {
+    
+    padding: 2rem 1rem;
+  }
+
+  main .welcome {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .texte {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .texte span {
+    font-size: 18px;
+  }
+
+  .explore {
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+}
+
+/* Très petits écrans (mobiles) */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .texte {
+    font-size: 12px;
+    width: 100%;
+    
+  }
+
+  .texte span {
+    font-size: 16px;
+  }
+
+  .explore {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+}
+
+/* Ultra petits écrans (320px et moins) */
+@media screen and (max-width: 320px) {
+ 
+  
+  .title {
+    font-size: 30px;
+  }
+
+  .texte {
+    font-size: 11px;
+  }
+
+  .texte span {
+    font-size: 14px;
+  }
+
+  .explore {
+    font-size: 14px;
+    padding: 6px 12px;
   }
 }

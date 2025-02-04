@@ -1,124 +1,240 @@
-const body = document.querySelector('body');
-const header = document.querySelector('.header');
-const navOpenBtn = document.querySelector('.navOpen-btn');
-const navCloseBtn = document.querySelector('.navClose-btn');
+const body = document.querySelector("body");
+const header = document.querySelector(".header");
+const navOpenBtn = document.querySelector(".navOpen-btn");
+const navCloseBtn = document.querySelector(".navClose-btn");
 
-// Ouvrir le menu
 if (header && navOpenBtn) {
   navOpenBtn.addEventListener("click", () => {
     header.classList.add("open");
     body.style.overflowY = "hidden";
-    navOpenBtn.style.display = "none"; // Masquer le bouton navOpen
+    navOpenBtn.style.display = "none";
   });
 }
 
-// Fermer le menu
 if (header && navCloseBtn) {
   navCloseBtn.addEventListener("click", () => {
     header.classList.remove("open");
     body.style.overflowY = "scroll";
-    navOpenBtn.style.display = "block"; // Afficher à nouveau le bouton navOpen
+    navOpenBtn.style.display = "block";
   });
 }
 
-
-// Fonction pour afficher l'année en fonction de l'ID passé
 function afficherAnnee(annee) {
-  // Masquer toutes les années
-  let sections = document.querySelectorAll('.annee');
-  sections.forEach(section => section.style.display = 'none');
+  let sections = document.querySelectorAll(".annee");
+  sections.forEach((section) => (section.style.display = "none"));
 
-  // Afficher l'année sélectionnée
-  const anneeEl = document.getElementById('annee' + annee);
+  const anneeEl = document.getElementById("annee" + annee);
   if (anneeEl) {
-    anneeEl.style.display = 'block';
+    anneeEl.style.display = "block";
   }
 
-  // Supprimer la classe 'first' de tous les liens
-  let menuItems = document.querySelectorAll('.menu-list a');
-  menuItems.forEach(item => item.classList.remove('first'));
+  let menuItems = document.querySelectorAll(".menu-list a");
+  menuItems.forEach((item) => item.classList.remove("first"));
 
-  // Ajouter la classe 'first' au lien correspondant à l'année
   if (menuItems[annee - 1]) {
-    menuItems[annee - 1].classList.add('first');
+    menuItems[annee - 1].classList.add("first");
   }
 
-  // Masquer ou afficher le bouton "Next"
-  let nextButton = document.querySelector('.explore');
+  let nextButton = document.querySelector(".explore");
   if (nextButton) {
     if (annee === 5) {
-      nextButton.style.display = 'none'; // Cache le bouton "Next" pour la 5e année
+      nextButton.style.display = "none";
     } else {
-      nextButton.style.display = 'block'; // Affiche le bouton "Next" pour les autres années
+      nextButton.style.display = "block";
     }
   }
 }
 
-// Lire l'URL pour obtenir le paramètre 'year'
 const params = new URLSearchParams(window.location.search);
-const annee = parseInt(params.get('year'), 10);
+const annee = parseInt(params.get("year"), 10);
 
-// Appeler la fonction pour afficher l'année sélectionnée
 if (annee) {
   afficherAnnee(annee);
 } else {
-  // Si aucune année n'est passée, afficher la première année par défaut
   afficherAnnee(1);
 }
 
-////////////////////////////////
-// Fonction pour charger le fichier HTML `media786.html`
-/*function chargerMediaSection() {
-  const sectionContainer = document.getElementById('section-container'); // Sélectionnez où le contenu sera injecté
-  console.log("Tentative de chargement de media_767.html...");
-  //fetch('D:/Users/mbi/Desktop/html;css/infogenieurr/html/media_767.html')//// Chemin du fichier à charger//
-  fetch('/html/media_786.html')
-  .then(response => {
-      if (!response.ok) {
-        throw new Error("Erreur HTTP " + response.status); // En cas de réponse non valide
-      }
-      return response.text();
-    })
-    .then(data => {
-      sectionContainer.innerHTML = data; // Injecte le contenu dans le conteneur
-    })
-    .catch(error => console.error("Erreur lors du chargement:", error.message, error)); // Gère les erreurs de chargement
-}*/
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("circuitCanvas");
+  const ctx = canvas.getContext("2d");
 
-function chargerMediaSection() {
-  const sectionContainer = document.getElementById('section-container');
-  console.log("Tentative de chargement de media_767.html...");
-
-  // Utilisez l'URL locale
-  function chargerMediaSection() {
-    const sectionContainer = document.getElementById('section-container');
-    console.log("Tentative de chargement de media_767.html...");
-  
-    // URL locale générée par Live Server
-    function chargerMediaSection() {
-      const sectionContainer = document.getElementById('section-container');
-      console.log("Tentative de chargement de media_767.html...");
-    
-      // Utiliser le chemin relatif avec Live Server
-      fetch('/html/media786.html')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error("Erreur HTTP " + response.status);
-          }
-          return response.text();
-        })
-        .then(data => {
-          sectionContainer.innerHTML = data;
-        })
-        .catch(error => console.error("Erreur lors du chargement:", error.message, error));
-    }
-    
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
   }
-}
-// Vérifiez si la largeur de l'écran est inférieure ou égale à 767px
-if (window.matchMedia("(max-width: 767px)").matches) {
-  console.log("Condition de média remplie (max-width: 767px)");
-  chargerMediaSection();
-} else {
-  console.log("Condition de média non remplie");
-}
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  function createGlowEffect(color, blur) {
+    ctx.shadowColor = color;
+    ctx.shadowBlur = blur;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+  }
+
+  function resetShadow() {
+    ctx.shadowColor = "transparent";
+    ctx.shadowBlur = 0;
+  }
+
+  let animationProgress = 0;
+
+  function drawCircuitLines() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const centerX = canvas.width / 2;
+
+    // Draw central line with glow
+    createGlowEffect("#0066ff", 10);
+    ctx.strokeStyle = "rgba(0, 102, 255, 0.3)";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, canvas.height);
+    ctx.stroke();
+    resetShadow();
+
+    // Draw animated central line gradient
+    const gradient = ctx.createLinearGradient(
+      centerX,
+      0,
+      centerX,
+      canvas.height
+    );
+    gradient.addColorStop(
+      Math.max(0, animationProgress - 0.1),
+      "rgba(0, 102, 255, 0)"
+    );
+    gradient.addColorStop(animationProgress, "rgba(255, 255, 255, 1)");
+    gradient.addColorStop(
+      Math.min(1, animationProgress + 0.1),
+      "rgba(0, 102, 255, 0)"
+    );
+
+    createGlowEffect("#fff", 15);
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, canvas.height);
+    ctx.stroke();
+    resetShadow();
+
+    // Draw PCB-style circuit lines
+    const modules = document.querySelectorAll(".module");
+
+    modules.forEach((module, index) => {
+      const rect = module.getBoundingClientRect();
+      const canvasRect = canvas.getBoundingClientRect();
+
+      const moduleX = rect.x - canvasRect.x + rect.width / 2;
+      const moduleY = rect.y - canvasRect.y + rect.height / 2;
+
+      const isLeft = moduleX < centerX;
+      const direction = isLeft ? -1 : 1;
+
+      // Draw base circuit path
+      createGlowEffect("#0066ff", 5);
+      ctx.strokeStyle = "rgba(0, 102, 255, 0.3)";
+      ctx.lineWidth = 3;
+
+      // Complex PCB-style path
+      ctx.beginPath();
+      ctx.moveTo(centerX, moduleY);
+
+      // Calculate control points for the path
+      const midX = centerX + (moduleX - centerX) * 0.5;
+      const offset1 = 30 * Math.sin(moduleY / 50);
+      const offset2 = 20 * Math.cos(moduleY / 40);
+
+      // Draw main connection line with angles
+
+      ctx.lineTo(moduleX, moduleY);
+
+
+      ctx.stroke();
+      resetShadow();
+
+      // Draw glowing endpoints
+      createGlowEffect("#fff", 10);
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(moduleX, moduleY, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(centerX, moduleY, 3, 0, Math.PI * 2);
+      ctx.fill();
+      resetShadow();
+
+      // Add decorative elements
+      const smallDotCount = 5;
+      for (let i = 0; i < smallDotCount; i++) {
+        const dotX = moduleX + direction * (i + 1) * 8;
+        ctx.beginPath();
+        ctx.arc(dotX, moduleY, 1, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 102, 255, 0.5)";
+        ctx.fill();
+      }
+
+      // Animate side lines
+      const sideLineProgress =
+        (animationProgress - index / modules.length + 1) % 1;
+      if (sideLineProgress >= 0 && sideLineProgress <= 1) {
+        const gradientSide = ctx.createLinearGradient(
+          centerX,
+          moduleY,
+          moduleX,
+          moduleY
+        );
+        gradientSide.addColorStop(
+          Math.max(0, sideLineProgress - 0.1),
+          "rgba(0, 102, 255, 0)"
+        );
+        gradientSide.addColorStop(sideLineProgress, "rgba(255, 255, 255, 1)");
+        gradientSide.addColorStop(
+          Math.min(1, sideLineProgress + 0.1),
+          "rgba(0, 102, 255, 0)"
+        );
+
+        createGlowEffect("#fff", 10);
+        ctx.strokeStyle = gradientSide;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(centerX, moduleY);
+        ctx.lineTo(moduleX, moduleY);
+        ctx.stroke();
+        resetShadow();
+
+        // Highlight the module
+        if (sideLineProgress >1 ) {
+          module.classList.add("highlight");
+        } else {
+          module.classList.remove("highlight");
+        }
+      } else {
+        module.classList.remove("highlight");
+      }
+    });
+
+    animationProgress += 0.005;
+    if (animationProgress > 1) animationProgress = 0;
+  }
+
+  function animate() {
+    drawCircuitLines();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Handle year button clicks
+  const yearButtons = document.querySelectorAll(".year-button");
+  yearButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      yearButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+    });
+  });
+});
