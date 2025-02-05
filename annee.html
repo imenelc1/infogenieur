@@ -72,9 +72,12 @@
         <canvas id="circuitCanvas"></canvas>
         <div class="modules">
               <!-- Première année -->
-          <div id="annee1">
-          <div id="semestre1" class="semester">
-            <h2>Semester 1</h2>
+          <div id="annee1" >
+            <div class="semester-buttons">
+              <button class="semester-button active" data-semester="1">Semestre 1</button>
+              <button class="semester-button" data-semester="2">Semestre 2</button>
+          </div>
+          <div id="semestre1" class="semester active">
             <div class="module left" data-id="1">
               <i class="fas fa-code"></i>
               <span>Algorithms & Data structures 1</span>
@@ -106,7 +109,6 @@
           </div>
           <div class="semester-separator"></div>
           <div id="semestre2" class="semester">
-            <h2>Semester 2</h2>
             <div class="module left" data-id="8">
               <i class="fas fa-code"></i>
               <span>Algorithms & Data structures 2</span>
@@ -176,7 +178,6 @@
         </div>
        
       </div>
-      <div class="semester-separator"></div>
       <div id="semestre4" class="semester">
         <h2>Semester 4</h2>
         <div class="module left" data-id="23">

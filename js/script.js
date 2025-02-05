@@ -238,3 +238,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const semesterButtons = document.querySelectorAll(".semester-button")
+  const semesters = document.querySelectorAll(".semester")
+
+  function showSemester(semesterNumber) {
+    semesters.forEach((semester, index) => {
+      if (index + 1 === semesterNumber) {
+        semester.classList.add("active")
+        semester.style.display = "flex"
+      } else {
+        semester.classList.remove("active")
+        semester.style.display = "none"
+      }
+    })
+
+    semesterButtons.forEach((button, index) => {
+      if (index + 1 === semesterNumber) {
+        button.classList.add("active")
+      } else {
+        button.classList.remove("active")
+      }
+    })
+  }
+
+  semesterButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      showSemester(index + 1)
+    })
+  })
+
+  // Initialize with the first semester active
+  showSemester(1)
+})
+
+

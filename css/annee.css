@@ -60,11 +60,6 @@ main {
   font-size: 1.5em;
 }
 
-.semester-separator {
-  height: 2px;
-  background: linear-gradient(to right, transparent, #75A5FF, transparent);
-  margin: 40px 0;
-}
 
 .module {
   background-color: rgba(0, 24, 54, 0.8);
@@ -151,3 +146,37 @@ main {
 .footer-links a:hover {
   text-decoration: underline;
 }
+.semester {
+  display: none;
+}
+
+.semester.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.semester-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.semester-button {
+  padding: 10px 20px;
+  background-color: rgba(0, 24, 54, 0.8);
+  color: var(--white-color);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.semester-button:hover,
+.semester-button.active {
+  background-color: rgba(0, 102, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+}
+
+
