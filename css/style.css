@@ -1,4 +1,3 @@
-
 @import url("https://fonts.cdnfonts.com/css/nasalization");
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
@@ -28,7 +27,7 @@ body {
   background-color: var(--body-color);
 }
 
-/*******************************LE MENU***********************************************************/
+/*LE MENU*/
 
 header {
   display: flex;
@@ -177,7 +176,7 @@ nav ul li .sous-menu li a:hover {
 
 
 
-/**********************************LE PARAGRAPHE********************************************************/
+/*LE PARAGRAPHE*/
 main {
   display: flex;
   width: 100%;
@@ -276,7 +275,7 @@ main .welcome {
   vertical-align: middle; 
 }
 
-/*********************TRANGLES************************/
+/*TRANGLES*/
 .triangle-container {
   position: absolute;
   width: 100%;
@@ -330,7 +329,7 @@ main .welcome {
     transform: translateY(0px);
   }
 }
-/****************************************MEDIA**************************************************/
+/*MEDIA*/
 @media (min-width: 768px) {
   .navOpen-btn,
   .navClose-btn {
@@ -338,6 +337,42 @@ main .welcome {
   }
 }
 @media screen and (max-width: 768px) {
+  .modules {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 12px;
+   
+  }
+  main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+   
+   
+   
+  }
+  
+  .modules {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+   
+  }
+.semester {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 50px;
+  
+}
+  
   .navClose-btn {
     display: block;
     position: fixed;

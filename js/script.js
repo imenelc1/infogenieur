@@ -20,14 +20,17 @@ if (header && navCloseBtn) {
 }
 
 function afficherAnnee(annee) {
-  let sections = document.querySelectorAll(".annee");
+  // Masquer toutes les années
+  let sections = document.querySelectorAll("[id^='annee']");
   sections.forEach((section) => (section.style.display = "none"));
 
+  // Afficher uniquement l'année sélectionnée
   const anneeEl = document.getElementById("annee" + annee);
   if (anneeEl) {
     anneeEl.style.display = "block";
   }
 
+  // Gérer l'état actif dans le menu
   let menuItems = document.querySelectorAll(".menu-list a");
   menuItems.forEach((item) => item.classList.remove("first"));
 
@@ -35,6 +38,7 @@ function afficherAnnee(annee) {
     menuItems[annee - 1].classList.add("first");
   }
 
+  // Gérer l'affichage du bouton suivant (si nécessaire)
   let nextButton = document.querySelector(".explore");
   if (nextButton) {
     if (annee === 5) {
@@ -45,14 +49,66 @@ function afficherAnnee(annee) {
   }
 }
 
-const params = new URLSearchParams(window.location.search);
-const annee = parseInt(params.get("year"), 10);
+function initialiserSemestres() {
+  const semesterButtons = document.querySelectorAll(".semester-button");
+  const semesters = document.querySelectorAll(".semester");
 
-if (annee) {
-  afficherAnnee(annee);
-} else {
-  afficherAnnee(1);
+  function showSemester(semesterNumber) {
+    semesters.forEach((semester) => {
+      // Vérifier si le semestre appartient à l'année active
+      if (semester.closest("[id^='annee']").style.display === "block") {
+        semester.style.display = "none";
+        semester.classList.remove("active");
+      }
+    });
+
+    semesterButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    // Activer le bon semestre
+    const activeSemester = document.querySelector(
+      `#semestre${semesterNumber}`
+    );
+    if (activeSemester) {
+      activeSemester.style.display = "flex";
+      activeSemester.classList.add("active");
+    }
+
+    // Activer le bon bouton
+    const activeButton = document.querySelector(
+      `.semester-button[data-semester='${semesterNumber}']`
+    );
+    if (activeButton) {
+      activeButton.classList.add("active");
+    }
+  }
+
+  semesterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const semesterNumber = parseInt(button.dataset.semester, 10);
+      showSemester(semesterNumber);
+    });
+  });
+
+  // Initialiser avec le premier semestre actif
+  showSemester(1);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Gérer les années à partir des paramètres ou initialiser à l'année 1
+  const params = new URLSearchParams(window.location.search);
+  const annee = parseInt(params.get("year"), 10);
+
+  if (annee) {
+    afficherAnnee(annee);
+  } else {
+    afficherAnnee(1);
+  }
+
+  // Initialiser les semestres
+  initialiserSemestres();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("circuitCanvas");
@@ -271,5 +327,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize with the first semester active
   showSemester(1)
 })
-
 
