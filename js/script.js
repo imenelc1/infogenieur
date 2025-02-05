@@ -6,7 +6,7 @@ const navCloseBtn = document.querySelector(".navClose-btn");
 if (header && navOpenBtn) {
   navOpenBtn.addEventListener("click", () => {
     header.classList.add("open");
-    body.style.overflowY = "hidden";
+    //body.style.overflowY = "hidden";
     navOpenBtn.style.display = "none";
   });
 }
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resetShadow();
 
       // Add decorative elements
-      const smallDotCount = 5;
+      const smallDotCount = 6;
       for (let i = 0; i < smallDotCount; i++) {
         const dotX = moduleX + direction * (i + 1) * 8;
         ctx.beginPath();

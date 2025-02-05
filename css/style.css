@@ -11,8 +11,7 @@
   --body-font: "Red Hat Display", sans-serif;
   --white-color: #ffffff;
   --body-color: #101221;
-  --one-color: #467799;
-
+  --one-color: #75a5ff;
   --tow-color: #2339ff;
   --inabel-color: #8888;
 }
@@ -171,14 +170,10 @@ nav ul li .sous-menu li a:hover {
 .navOpen-btn{
   display: none;
 }
-.menu-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+.navClose-btn {
+  display: none;
 }
+
 
 
 
@@ -323,9 +318,7 @@ main .welcome {
     transform: translateY(0px);
   }
 }
-/* Différentes dimensions et positions pour chaque triangle */
 
-/* Animation */
 @keyframes move {
   0% {
     transform: translateY(0px);
@@ -338,7 +331,24 @@ main .welcome {
   }
 }
 /****************************************MEDIA**************************************************/
+@media (min-width: 768px) {
+  .navOpen-btn,
+  .navClose-btn {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 768px) {
+  .navClose-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    z-index: 1000;
+  }
+
   .navOpen-btn {
     display: block;
     position: fixed;
@@ -463,9 +473,7 @@ main .welcome {
   
     color:var(--one-color);
   }
-  .navOpen-btn{
-    display: none;
-  }
+
 
   /* Bouton contribute en bas */
   .contribute {
@@ -535,6 +543,37 @@ main .welcome {
 }
 /* Petits écrans (tablettes et téléphones) */
 @media screen and (max-width: 768px) {
+  .header {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    max-width: 150px;
+    width: 25%;
+    height: 90%;
+    z-index: 999;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(900deg, rgba(117, 165, 255, 0.20) 0%, rgba(147, 185, 255, 0.20) 0.01%, rgba(255, 255, 255, 0.20) 77.6%), rgba(29, 29, 29, 0.05);
+    box-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.15) inset;
+    -webkit-backdrop-filter: blur(3px); 
+    backdrop-filter: blur(3px);
+    border-radius: 2.5rem;
+    border: 0.3px solid #3F1F55;
+
+    transition: right 0.3s ease-in-out;
+  }
+  .contribute {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .header.open .menu-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.7rem;
+  }
   main {
     
     padding: 2rem 1rem;
