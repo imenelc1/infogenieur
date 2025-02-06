@@ -61,6 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function resizeCanvas() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Nettoyage pour éviter les artefacts visuels
+
   }
 
   resizeCanvas();
