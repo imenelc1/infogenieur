@@ -143,3 +143,124 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
+// Fonction pour récupérer la valeur d'un paramètre dans l'URL
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Récupérer le paramètre 'semestre' dans l'URL
+const semestreParam = getQueryParam("semestre");
+
+// Masquer tous les semestres au départ
+const semesters = document.querySelectorAll(".semester");
+semesters.forEach((semester) => {
+  semester.style.display = "none"; // Cacher tous les semestres
+});
+
+// Afficher uniquement le semestre correspondant au paramètre
+if (semestreParam) {
+  const selectedSemester = document.getElementById(`semestre${semestreParam}`);
+  if (selectedSemester) {
+    selectedSemester.style.display = "block"; // Afficher le semestre sélectionné
+  } else {
+    console.error(`Semestre ${semestreParam} introuvable`);
+  }
+} else {
+  // Si aucun paramètre 'semestre' n'est défini, afficher le semestre 1 par défaut
+  const defaultSemester = document.getElementById("semestre1");
+  if (defaultSemester) {
+    defaultSemester.style.display = "block";
+  }
+}
+const courseItems = document.querySelectorAll('.course-item');
+    
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    courseItems.forEach(item => {
+        observer.observe(item);
+    });
+    // Animation de fond
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height, particles;
+
+    function setup() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        
+        particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: Math.random() * 0.5 - 0.25,
+                vy: Math.random() * 0.5 - 0.25,
+                radius: Math.random() * 1.5 + 0.5 // Taille variable des points
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Dessiner les connexions
+        ctx.strokeStyle = 'rgba(100, 149, 237, 0.1)';
+        ctx.lineWidth = 0.5;
+        
+        for (let i = 0; i < particles.length; i++) {
+            let p1 = particles[i];
+            p1.x += p1.vx;
+            p1.y += p1.vy;
+            
+            if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+            if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+            
+            for (let j = i + 1; j < particles.length; j++) {
+                let p2 = particles[j];
+                let dx = p1.x - p2.x;
+                let dy = p1.y - p2.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        // Dessiner les points lumineux
+        for (let i = 0; i < particles.length; i++) {
+            let p = particles[i];
+            
+            // Créer un dégradé radial pour chaque point
+            let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 2);
+            gradient.addColorStop(0, 'rgba(100, 149, 237, 0.8)');
+            gradient.addColorStop(1, 'rgba(100, 149, 237, 0)');
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+        }
+        
+        requestAnimationFrame(draw);
+    }
+
+    setup();
+    draw();
+
+    window.addEventListener('resize', setup);
