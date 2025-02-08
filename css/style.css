@@ -2,15 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
   font-family: "Nasalization";
-  src: url("font/nasalization-rg.woff2") format("woff2"),
-       url("font/nasalization-rg.woff") format("woff"),
-       url("font/nasalization-rg.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
+  src: url("font/nasalization Rg.otf") format("woff2"),
+       url("font/nasalization Rg.otf") format("woff"),
+       url("font/nasalization Rg.otf") format("truetype"),
+       url("font/nasalization Rg.otf") format("opentype");
 }
 
+
 :root {
-  --menu-font: "Nasalization", sans-serif;
+  --menu-font: "Nasalization Rg", sans-serif;
   --body-font: "Red Hat Display", sans-serif;
   --white-color: #ffffff;
   --body-color: #101221;
@@ -126,58 +126,6 @@ nav ul li a.closed {
   background: none;
 }
 
-nav ul li .sous-menu {
-  display: none;
-  position: absolute;
-  border-radius: 12px;
-  border: 0.5px solid linear-gradient(
-    104deg,
-    rgba(117, 165, 255, 0.2) 0%,
-    rgba(147, 185, 255, 0.2) 0.01%,
-    rgba(255, 255, 255, 0.2) 77.6%
-  ),;
-  background: linear-gradient(
-    104deg,
-    rgba(117, 165, 255, 0.2) 0%,
-    rgba(147, 185, 255, 0.2) 0.01%,
-    rgba(130, 154, 190, 0.2) 77.6%
-  ),
-  rgba(29, 29, 29, 0.05);
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  transition: 1 opacity 0.3s ease;
-
-  
-}
-nav ul li:hover .sous-menu {
-  display: flex;
-  padding: 6px 4px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25px;
-  opacity: 1;
-  visibility: visible;
-  border-radius: 16px;
-  font-size: 15px;
-  font-style: italic;
-  font-weight: 20px;
-  
-}
-nav ul li .sous-menu li {
-  display: block;
-}
-nav ul li .sous-menu li a {
-  color: var(--white-color);
-  padding: 10px;
-  text-decoration: none;
-  display: block;
-  border-radius: 8px;
-}
-nav ul li .sous-menu li a:hover {
-
-  color:var(--one-color);
-}
 .navOpen-btn{
   display: none;
 }
@@ -269,6 +217,17 @@ main .welcome {
   cursor: pointer;
   text-decoration: none;
 }
+
+
+.explore:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(117, 165, 255, 0.9) 10%,
+    rgba(70, 99, 153, 0.4) 90%
+  );
+  transform: scale(1.05); /* Effet de zoom au survol */
+}
+
 .explore img.exp {
   margin-left: 8px; 
 
