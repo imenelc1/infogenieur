@@ -246,31 +246,19 @@ main {
   margin: auto;
 }
 
-.footer p {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
 
-.footer-links li {
-  display: inline;
-}
+
 
 .footer-links a {
-  color: #00aaff;
+  color: var(--white-color);
   text-decoration: none;
   font-size: 14px;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+  color: var(--one-color);
 }
 .semester {
   transition: opacity 0.6s ease, transform 0.6s ease; /* Augmenter la durée de la transition */
