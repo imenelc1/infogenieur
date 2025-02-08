@@ -289,4 +289,36 @@ const courseItems = document.querySelectorAll('.course-item');
     draw();
 
     window.addEventListener('resize', setup);
-   
+   // Existing code...
+
+// Add this new function for the drives
+function initializeDrives() {
+  const drives = [
+      { name: "Drive Commun L1", link: "#" },
+      { name: "Drive Commun L2", link: "#" },
+      { name: "Drive Commun L3", link: "#" },
+      { name: "Drive Projets", link: "#" },
+      { name: "Drive Resources", link: "#" },
+      { name: "Drive Examens", link: "#" },
+  ];
+
+  const drivesGrid = document.getElementById('drivesGrid');
+  if (drivesGrid) {
+      drives.forEach(drive => {
+          const driveCard = document.createElement('a');
+          driveCard.href = drive.link;
+          driveCard.className = 'drive-card';
+          driveCard.innerHTML = `
+              <i class='bx bxs-folder'></i>
+              <h3>${drive.name}</h3>
+              <p>Cliquez pour accéder</p>
+          `;
+          drivesGrid.appendChild(driveCard);
+      });
+  }
+}
+
+// Call the function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeDrives);
+
+// Existing code...
