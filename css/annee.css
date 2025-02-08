@@ -172,6 +172,18 @@ main {
     transform: translate(-50%, -50%);
     animation: pulse 2s infinite;
 }
+/* Animation pour l'année */
+.annee {
+  opacity: 0;
+  transform: translateY(20px); /* Déplacer légèrement vers le bas */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Animation fluide */
+}
+
+.annee.active {
+  opacity: 1;
+  transform: translateY(0); /* Réinitialiser la position */
+}
+
 
 @keyframes pulse {
     0% {
@@ -261,7 +273,7 @@ main {
   text-decoration: underline;
 }
 .semester {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Augmenter la durée de la transition */
   opacity: 0;
   transform: translateX(20px); /* Déplace les modules horizontalement */
 }
@@ -272,6 +284,7 @@ main {
 }
 
 
+
 @media screen and (max-width: 768px) {
 
 
@@ -280,4 +293,25 @@ main {
     width: 90%;
   }
 
+ }
+ @media screen and (max-width: 1024px) {
+
+
+  .modules {
+ 
+    width: 90%;
+  }
+  .module {
+ 
+    padding-left: 10px;
+  }
+  .module span {
+    flex-grow: 1;
+    color: var(--white-color);
+    margin-left: 0px;
+  }
+  .module i {
+    
+    margin-left:0px;
+  }
  }

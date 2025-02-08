@@ -2,7 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
   font-family: "Nasalization";
-  src: url("font/nasalization-rg.otf");
+  src: url("font/nasalization-rg.woff2") format("woff2"),
+       url("font/nasalization-rg.woff") format("woff"),
+       url("font/nasalization-rg.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
@@ -204,18 +208,6 @@ main .para {
   border-radius: 100px;
 }
 
-main .para::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background: #2c50aa;
-  filter: blur(400px);
-  z-index: -1;
-}
 
 main .welcome {
   display: flex;
