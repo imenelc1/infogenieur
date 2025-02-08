@@ -260,6 +260,17 @@ main {
 .footer-links a:hover {
   text-decoration: underline;
 }
+.semester {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px); /* Déplace les modules horizontalement */
+}
+
+.semester.active {
+  opacity: 1;
+  transform: translateX(0); /* Réinitialise la position horizontale */
+}
+
 
 @media screen and (max-width: 768px) {
 

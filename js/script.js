@@ -70,27 +70,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Gestion de l'affichage des semestres dans l'année active ---
   function showSemester(semesterNumber, anneeEl) {
-    const semesterButtons = anneeEl.querySelectorAll(".semester-button")
-    const semesters = anneeEl.querySelectorAll(".semester")
-
+    const semesterButtons = anneeEl.querySelectorAll(".semester-button");
+    const semesters = anneeEl.querySelectorAll(".semester");
+  
     semesters.forEach((semester) => {
       if (semester.id === "semestre" + semesterNumber) {
-        semester.style.display = "flex"
-        semester.classList.add("active")
+        semester.style.display = "flex";
+        setTimeout(() => {
+          semester.style.opacity = "1";
+          semester.style.transform = "translateY(0)";
+        }, 10);
+        semester.classList.add("active");
       } else {
-        semester.style.display = "none"
-        semester.classList.remove("active")
+        semester.style.opacity = "0";
+        semester.style.transform = "translateY(20px)";
+        setTimeout(() => {
+          semester.style.display = "none";
+        }, 300);
+        semester.classList.remove("active");
       }
-    })
-
+    });
+  
     semesterButtons.forEach((button) => {
       if (Number.parseInt(button.dataset.semester, 10) === semesterNumber) {
-        button.classList.add("active")
+        button.classList.add("active");
       } else {
-        button.classList.remove("active")
+        button.classList.remove("active");
       }
-    })
+    });
   }
+  
 
   // Gestion des clics sur les boutons de semestre
   document.addEventListener("click", (e) => {
@@ -281,3 +290,4 @@ const courseItems = document.querySelectorAll('.course-item');
     draw();
 
     window.addEventListener('resize', setup);
+    
