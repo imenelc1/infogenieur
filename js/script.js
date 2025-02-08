@@ -173,7 +173,7 @@ if (semestreParam) {
   if (selectedSemester) {
     selectedSemester.style.display = "block"; // Afficher le semestre sélectionné
   } else {
-    console.error('Semestre ${semestreParam} introuvable');
+    console.error(`Semestre ${semestreParam} introuvable`);
   }
 } else {
   // Si aucun paramètre 'semestre' n'est défini, afficher le semestre 1 par défaut
@@ -290,3 +290,4 @@ const courseItems = document.querySelectorAll('.course-item');
     draw();
 
     window.addEventListener('resize', setup);
+    
