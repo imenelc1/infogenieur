@@ -271,7 +271,11 @@ main {
   transform: translateX(0); /* Réinitialise la position horizontale */
 }
 
-
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 @media screen and (max-width: 768px) {
 
