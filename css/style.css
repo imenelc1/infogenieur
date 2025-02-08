@@ -2,13 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
   font-family: "Nasalization";
-  src: url("font/nasalization.woff2") format("woff2"),
-       url("font/nasalization.woff") format("woff"),
-       url("font/nasalization.ttf") format("truetype"),
-       url("font/nasalization.otf") format("opentype");
+  src: url("font/nasalization Rg.otf") format("woff2"),
+       url("font/nasalization Rg.otf") format("woff"),
+       url("font/nasalization Rg.otf") format("truetype"),
+       url("font/nasalization Rg.otf") format("opentype");
 }
 :root {
-  --menu-font: "Nasalization", sans-serif;
+  --menu-font: "Nasalization Rg", sans-serif;
   --body-font: "Red Hat Display", sans-serif;
   --white-color: #ffffff;
   --body-color: #101221;
