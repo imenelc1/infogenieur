@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Masquer toutes les sections d'années
     const sections = document.querySelectorAll("[id^='annee']");
     sections.forEach((section) => {
+      section.classList.remove('active');
       section.style.display = "none";
     });
   
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const anneeEl = document.getElementById("annee" + annee);
     if (anneeEl) {
       anneeEl.style.display = "block";
+      setTimeout(() => {
+        anneeEl.classList.add('active'); // Appliquer l'animation après un petit délai
+      }, 10); // Un petit délai pour activer la transition
     }
   
     // Mettre à jour l'état actif du menu
@@ -42,19 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     // Gérer l'affichage des semestres dans l'année active
-    // On recherche les boutons et les conteneurs de semestres uniquement dans anneeEl
     const semesterButtons = anneeEl.querySelectorAll(".semester-button");
     const semesters = anneeEl.querySelectorAll(".semester");
   
     if (semesterButtons.length > 0) {
-      // S'il y a des boutons, on affiche par défaut le premier semestre du conteneur
-      // Pour l'année 1, le premier semestre correspond à "Semestre 1"
-      // Pour l'année 2, le premier bouton correspond à "Semester 3"
-      // On récupère le numéro indiqué dans l'attribut data-semester et on affiche le bon conteneur
       const defaultSemester = semesterButtons[0].dataset.semester;
       showSemester(parseInt(defaultSemester, 10), anneeEl);
     } else {
-      // Sinon, on affiche tous les semestres présents
       semesters.forEach((semester) => {
         semester.style.display = "flex";
         semester.classList.add("active");
@@ -99,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
   
 
   // Gestion des clics sur les boutons de semestre

@@ -204,18 +204,6 @@ main .para {
   border-radius: 100px;
 }
 
-main .para::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background: #2c50aa;
-  filter: blur(400px);
-  z-index: -1;
-}
 
 main .welcome {
   display: flex;
