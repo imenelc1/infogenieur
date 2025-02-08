@@ -110,7 +110,38 @@
     font-size: 1rem;
 }
 
-
+.footer {
+    background: #001836;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  
+  .footer-links a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 14px;
+  
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
 
 @media (max-width: 768px) {
     .drives-container h1 {
@@ -130,6 +161,7 @@
         font-size: 0.8rem;
     }
 }
+
 
 
 @media (max-width: 480px) {
