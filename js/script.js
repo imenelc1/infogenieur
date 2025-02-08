@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Gestion du menu ---
+
   const body = document.querySelector("body")
   const header = document.querySelector(".header")
   const navOpenBtn = document.querySelector(".navOpen-btn")
@@ -20,35 +20,35 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // --- Affichage des années et réinitialisation des semestres ---
+
   function afficherAnnee(annee) {
-    // Masquer toutes les sections d'années
+
     const sections = document.querySelectorAll("[id^='annee']");
     sections.forEach((section) => {
       section.classList.remove('active');
       section.style.display = "none";
     });
-  
-    // Afficher uniquement l'année sélectionnée
+
+
     const anneeEl = document.getElementById("annee" + annee);
     if (anneeEl) {
       anneeEl.style.display = "block";
       setTimeout(() => {
-        anneeEl.classList.add('active'); // Appliquer l'animation après un petit délai
-      }, 10); // Un petit délai pour activer la transition
+        anneeEl.classList.add('active');
+      }, 10);
     }
-  
-    // Mettre à jour l'état actif du menu
+
+
     const menuItems = document.querySelectorAll(".menu-list a");
     menuItems.forEach((item) => item.classList.remove("first"));
     if (menuItems[annee - 1]) {
       menuItems[annee - 1].classList.add("first");
     }
-  
-    // Gérer l'affichage des semestres dans l'année active
+
+
     const semesterButtons = anneeEl.querySelectorAll(".semester-button");
     const semesters = anneeEl.querySelectorAll(".semester");
-  
+
     if (semesterButtons.length > 0) {
       const defaultSemester = semesterButtons[0].dataset.semester;
       showSemester(parseInt(defaultSemester, 10), anneeEl);
@@ -58,19 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
         semester.classList.add("active");
       });
     }
-  
+
     console.log("Affichage de l'année: " + annee, anneeEl);
   }
-  
 
-  // Rendre la fonction accessible globalement (pour les onclick dans le HTML)
+
+
   window.afficherAnnee = afficherAnnee
 
-  // --- Gestion de l'affichage des semestres dans l'année active ---
+
   function showSemester(semesterNumber, anneeEl) {
     const semesterButtons = anneeEl.querySelectorAll(".semester-button");
     const semesters = anneeEl.querySelectorAll(".semester");
-  
+
     semesters.forEach((semester) => {
       if (semester.id === "semestre" + semesterNumber) {
         semester.style.display = "flex";
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         semester.classList.remove("active");
       }
     });
-  
+
     semesterButtons.forEach((button) => {
       if (Number.parseInt(button.dataset.semester, 10) === semesterNumber) {
         button.classList.add("active");
@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
-  
 
-  // Gestion des clics sur les boutons de semestre
+
+
+
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("semester-button")) {
       const anneeEl = e.target.closest("[id^='annee']")
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // --- Animation des modules ---
+
   const modules = document.querySelectorAll(".module")
 
   function checkModules() {
@@ -129,10 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", checkModules)
   window.addEventListener("resize", checkModules)
 
-  // Initial check
+
   checkModules()
 
-  // --- Initialisation sur chargement de la page ---
+
   const params = new URLSearchParams(window.location.search)
   const anneeParam = Number.parseInt(params.get("year"), 10)
   if (anneeParam) {
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     afficherAnnee(1)
   }
 
-  // --- (Optionnel) Gestion des boutons d'année s'ils existent ailleurs ---
+
   const yearButtons = document.querySelectorAll(".year-button")
   yearButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -151,174 +151,177 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-// Fonction pour récupérer la valeur d'un paramètre dans l'URL
+
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
-// Récupérer le paramètre 'semestre' dans l'URL
+
 const semestreParam = getQueryParam("semestre");
 
-// Masquer tous les semestres au départ
+
 const semesters = document.querySelectorAll(".semester");
 semesters.forEach((semester) => {
-  semester.style.display = "none"; // Cacher tous les semestres
+  semester.style.display = "none";
 });
 
-// Afficher uniquement le semestre correspondant au paramètre
+
 if (semestreParam) {
   const selectedSemester = document.getElementById(`semestre${semestreParam}`);
   if (selectedSemester) {
-    selectedSemester.style.display = "block"; // Afficher le semestre sélectionné
+    selectedSemester.style.display = "block";
   } else {
     console.error(`Semestre ${semestreParam} introuvable`);
   }
 } else {
-  // Si aucun paramètre 'semestre' n'est défini, afficher le semestre 1 par défaut
+
   const defaultSemester = document.getElementById("semestre1");
   if (defaultSemester) {
     defaultSemester.style.display = "block";
   }
 }
 const courseItems = document.querySelectorAll('.course-item');
-    
-    const observerOptions = {
-        threshold: 0.2
-    };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
+const observerOptions = {
+  threshold: 0.2
+};
 
-    courseItems.forEach(item => {
-        observer.observe(item);
-    });
-    // Animation de fond
-    const canvas = document.getElementById('backgroundCanvas');
-    const ctx = canvas.getContext('2d');
-
-    let width, height, particles;
-
-    function setup() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-  
-      particles = [];
-      
-      if (window.innerWidth < 600) {
-          // Boucle différente pour les mobiles : moins de particules et une animation simplifiée
-          let numParticles = 30; // Moins de particules pour améliorer la performance
-          for (let i = 0; i < numParticles; i++) {
-              particles.push({
-                  x: Math.random() * width,
-                  y: Math.random() * height,
-                  vx: Math.random() * 0.5 - 0.25,
-                  vy: Math.random() * 0.5 - 0.25,
-                  radius: Math.random() * 1 + 1 // Moins de variation de taille
-              });
-          }
-      } else {
-          // Boucle standard pour les grands écrans
-          let numParticles = 100;
-          for (let i = 0; i < numParticles; i++) {
-              particles.push({
-                  x: Math.random() * width,
-                  y: Math.random() * height,
-                  vx: Math.random() * 0.5 - 0.25,
-                  vy: Math.random() * 0.5 - 0.25,
-                  radius: Math.random() * 1.5 + 0.5 // Taille plus variée pour les grands écrans
-              });
-          }
-      }
-  }
-  
-    function draw() {
-        ctx.clearRect(0, 0, width, height);
-        
-        // Dessiner les connexions
-        ctx.strokeStyle = 'rgba(100, 149, 237, 0.1)';
-        ctx.lineWidth = 0.5;
-        
-        for (let i = 0; i < particles.length; i++) {
-            let p1 = particles[i];
-            p1.x += p1.vx;
-            p1.y += p1.vy;
-            
-            if (p1.x < 0 || p1.x > width) p1.vx *= -1;
-            if (p1.y < 0 || p1.y > height) p1.vy *= -1;
-            
-            for (let j = i + 1; j < particles.length; j++) {
-                let p2 = particles[j];
-                let dx = p1.x - p2.x;
-                let dy = p1.y - p2.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                }
-            }
-        }
-        
-        // Dessiner les points lumineux
-        for (let i = 0; i < particles.length; i++) {
-            let p = particles[i];
-            
-            // Créer un dégradé radial pour chaque point
-            let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 2);
-            gradient.addColorStop(0, 'rgba(100, 149, 237, 0.8)');
-            gradient.addColorStop(1, 'rgba(100, 149, 237, 0)');
-            
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-        }
-        
-        requestAnimationFrame(draw);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
     }
+  });
+}, observerOptions);
 
-    setup();
-    draw();
+courseItems.forEach(item => {
+  observer.observe(item);
+});
 
-    window.addEventListener('resize', setup);
-   // Existing code...
+const canvas = document.getElementById('backgroundCanvas');
+const ctx = canvas.getContext('2d');
 
-// Add this new function for the drives
+let width, height, particles;
+
+function setup() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+
+  particles = [];
+
+  if (window.innerWidth < 600) {
+
+    let numParticles = 30;
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: Math.random() * 0.5 - 0.25,
+        vy: Math.random() * 0.5 - 0.25,
+        radius: Math.random() * 1 + 1
+      });
+    }
+  } else {
+
+    let numParticles = 100;
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: Math.random() * 0.5 - 0.25,
+        vy: Math.random() * 0.5 - 0.25,
+        radius: Math.random() * 1.5 + 0.5
+      });
+    }
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+
+  ctx.strokeStyle = 'rgba(100, 149, 237, 0.1)';
+  ctx.lineWidth = 0.5;
+
+  for (let i = 0; i < particles.length; i++) {
+    let p1 = particles[i];
+    p1.x += p1.vx;
+    p1.y += p1.vy;
+
+    if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+    if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+
+    for (let j = i + 1; j < particles.length; j++) {
+      let p2 = particles[j];
+      let dx = p1.x - p2.x;
+      let dy = p1.y - p2.y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 100) {
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      }
+    }
+  }
+
+
+  for (let i = 0; i < particles.length; i++) {
+    let p = particles[i];
+
+
+    let gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 2);
+    gradient.addColorStop(0, 'rgba(100, 149, 237, 0.8)');
+    gradient.addColorStop(1, 'rgba(100, 149, 237, 0)');
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+setup();
+draw();
+
+window.addEventListener('resize', setup);
+
+
+
 function initializeDrives() {
   const drives = [
-      { name: "Drive Commun L1", link: "#" },
-      { name: "Drive Commun L2", link: "#" },
-      { name: "Drive Commun L3", link: "#" },
-      { name: "Drive Projets", link: "#" },
-      { name: "Drive Resources", link: "#" },
-      { name: "Drive Examens", link: "#" },
+    { name: "Drive Boumerdas cs engineering (3 years)", link: "https://drive.google.com/drive/folders/10iUDqie0O9xWEo8-d8Krdy0GKaIga3cA?fbclid=PAZXh0bgNhZW0CMTEAAaagGJjKPHLk5JA5MVsspc2OviF4YJcznJrFdEUu_xwZjPS0LlEUPlRP13I_aem_6uZeeOM3j2s36wH7pR_tFg" },
+    { name: "Drive  L2", link: "#" },
+    { name: "Drive  L3", link: "#" },
+ 
   ];
 
   const drivesGrid = document.getElementById('drivesGrid');
   if (drivesGrid) {
-      drives.forEach(drive => {
-          const driveCard = document.createElement('a');
-          driveCard.href = drive.link;
-          driveCard.className = 'drive-card';
-          driveCard.innerHTML = `
+    drives.forEach(drive => {
+      const driveCard = document.createElement('a');
+      driveCard.href = drive.link;
+      driveCard.target = "_blank";
+      driveCard.className = 'drive-card';
+      driveCard.innerHTML = `
               <i class='bx bxs-folder'></i>
-              <h3>${drive.name}</h3>
-              <p>Cliquez pour accéder</p>
+              <h4>${drive.name}</h4>
           `;
-          drivesGrid.appendChild(driveCard);
-      });
+
+      if (drive.name != "Drive Boumerdas cs engineering (3 years)") {
+        driveCard.style.pointerEvents = 'none';
+        driveCard.style.cursor = 'not-allowed';
+        driveCard.style.opacity = '0.5';
+      }
+
+      drivesGrid.appendChild(driveCard);
+    });
   }
 }
 
-// Call the function when the DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeDrives);
 
-// Existing code...
+document.addEventListener('DOMContentLoaded', initializeDrives);
