@@ -289,4 +289,4 @@ const courseItems = document.querySelectorAll('.course-item');
     draw();
 
     window.addEventListener('resize', setup);
-    
+   
