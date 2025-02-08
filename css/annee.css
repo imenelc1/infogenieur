@@ -5,8 +5,9 @@
   font-weight: bold;
   transition: color 0.3s ease;
   white-space: nowrap;
-  
+
 }
+
 h1 {
   display: flex;
   justify-content: center;
@@ -15,6 +16,7 @@ h1 {
   font-family: var(--menu-font);
   color: var(--white-color);
 }
+
 #circuitCanvas {
   position: absolute;
   top: 0;
@@ -23,6 +25,7 @@ h1 {
   height: 100%;
   z-index: 1;
 }
+
 #backgroundCanvas {
   position: fixed;
   top: 0;
@@ -31,11 +34,12 @@ h1 {
   height: 100%;
   z-index: -1;
 }
+
 main {
   position: relative;
   height: 100%;
   width: 100%;
- 
+
 }
 
 .modules {
@@ -45,159 +49,163 @@ main {
   width: 50%;
   flex-direction: column;
   justify-content: space-around;
-     
- 
+
+
 }
 
 .semester {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
+
 }
+
 .semester h2 {
   text-align: center;
-  color:var(--white-color);
+  color: var(--white-color);
   font-size: 1.5em;
 }
 
 .semester.active {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 0;
 }
 
 .semester.active::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(0, 102, 255, 0.5) 10%,
-        rgba(0, 102, 255, 0.5) 90%,
-        transparent
-    );
-    transform: translateX(-50%);
-    z-index: 1;
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(0, 102, 255, 0.5) 10%,
+      rgba(0, 102, 255, 0.5) 90%,
+      transparent);
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 .module {
-    background-color: rgba(0, 24, 54, 0.8);
-    border: 1px solid rgba(0, 102, 255, 0.3);
-    border-radius: 8px;
-    padding: 16px;
-    width: calc(50% - 30px);
-    -webkit-backdrop-filter: blur(5px); 
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(50px);
-    position: relative;
+  background-color: rgba(0, 24, 54, 0.8);
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  width: calc(50% - 30px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  position: relative;
 }
 
 .module.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .module:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
 }
 
 .module.left {
-    align-self: flex-start;
-    margin-right: 60px;
+  align-self: flex-start;
+  margin-right: 60px;
 }
 
 .module.right {
-    align-self: flex-end;
-    margin-left: 60px;
+  align-self: flex-end;
+  margin-left: 60px;
 }
 
 .module a {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .module i {
   font-size: 1.5em;
-  color:var(--one-color);
+  color: var(--one-color);
 }
+
 .module span {
   flex-grow: 1;
   color: var(--white-color);
   margin-left: 10px;
 }
+
 .module.highlight {
   box-shadow: 0 0 20px var(--one-color);
   background-color: rgba(0, 102, 255, 0.2);
 }
+
 .timeline-point {
-    position: absolute;
-    top: 50%;
-    width: 15px;
-    height: 15px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
+  position: absolute;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 .module.left .timeline-point {
-    right: -37.5px;
+  right: -37.5px;
 }
 
 .module.right .timeline-point {
-    left: -37.5px;
+  left: -37.5px;
 }
 
 .timeline-point::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    background-color: rgba(0, 102, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: pulse 2s infinite;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 102, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
 }
-/* Animation pour l'année */
+
 .annee {
   opacity: 0;
-  transform: translateY(20px); /* Déplacer légèrement vers le bas */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Animation fluide */
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .annee.active {
   opacity: 1;
-  transform: translateY(0); /* Réinitialiser la position */
+  transform: translateY(0);
 }
 
 
 @keyframes pulse {
-    0% {
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.4;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0.8;
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
 }
 
 .semester-buttons {
@@ -220,9 +228,10 @@ main {
 
 .semester-button:hover,
 .semester-button.active {
-    background-color: rgba(0, 102, 255, 0.2);
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+  background-color: rgba(0, 102, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
 }
+
 .semester {
   display: none;
 }
@@ -247,6 +256,11 @@ main {
 }
 
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 
 
@@ -254,21 +268,23 @@ main {
   color: var(--white-color);
   text-decoration: none;
   font-size: 14px;
+
 }
 
 .footer-links a:hover {
   text-decoration: underline;
   color: var(--one-color);
 }
+
 .semester {
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Augmenter la durée de la transition */
+  transition: opacity 0.6s ease, transform 0.6s ease;
   opacity: 0;
-  transform: translateX(20px); /* Déplace les modules horizontalement */
+  transform: translateX(20px);
 }
 
 .semester.active {
   opacity: 1;
-  transform: translateX(0); /* Réinitialise la position horizontale */
+  transform: translateX(0);
 }
 
 
@@ -277,29 +293,33 @@ main {
 
 
   .modules {
- 
+
     width: 90%;
   }
 
- }
- @media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 1024px) {
 
 
   .modules {
- 
+
     width: 90%;
   }
+
   .module {
- 
+
     padding-left: 10px;
   }
+
   .module span {
     flex-grow: 1;
     color: var(--white-color);
     margin-left: 0px;
   }
+
   .module i {
-    
-    margin-left:0px;
+
+    margin-left: 0px;
   }
- }
+}

@@ -1,0 +1,147 @@
+.drives-container h1 {
+    font-family: var(--body-font);
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--white-color);
+    text-transform: uppercase;
+    padding: 50px 10px;
+}
+
+.drives-container {
+    padding: 0rem;
+    max-width: 1200px;
+    margin-bottom: 150px;
+}
+
+.drives-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.drives-grid>* {
+    height: 100px;
+    width: 300px;
+}
+
+.drive-card {
+    background-color: rgba(0, 24, 54, 0.8);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    text-decoration: none;
+}
+
+.drive-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+}
+
+.drive-card i {
+    font-size: 2rem;
+    color: var(--one-color);
+}
+
+.drive-card h3 {
+    color: var(--white-color);
+    font-size: 1.2rem;
+}
+
+.drive-card p {
+    color: var(--white-color);
+    font-size: 0.9rem;
+}
+
+
+
+
+.drives-container h1 {
+    font-family: var(--body-font);
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--white-color);
+    text-transform: uppercase;
+    padding: 50px 10px;
+}
+
+.drives-container {
+    padding: 0rem;
+    max-width: 1200px;
+    margin-bottom: 150px;
+}
+
+.drives-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.drives-grid>* {
+    height: 100px;
+    width: 300px;
+}
+
+
+.drive-card {
+    background-color: rgba(0, 24, 54, 0.8);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    text-decoration: none;
+}
+
+.drive-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+}
+
+.drive-card i {
+    font-size: 2rem;
+    color: var(--one-color);
+}
+
+.drive-card h3 {
+    color: var(--white-color);
+    font-size: 1.2rem;
+}
+
+.drive-card p {
+    color: var(--white-color);
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+    .drives-container h1 {
+        font-size: 1.5rem;
+        padding: 40px 10px;
+    }
+
+    .drives-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .drives-grid>* {
+        width: 200px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .drives-container h1 {
+        font-size: 1.2rem;
+        padding: 30px 10px;
+    }
+
+    .drives-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .drives-grid>* {
+        width: 100%;
+    }
+}
