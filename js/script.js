@@ -294,7 +294,7 @@ window.addEventListener('resize', setup);
 
 function initializeDrives() {
   const drives = [
-    { name: "Drive  L1", link: "#" },
+    { name: "Drive Boumerdas cs engineering (3 years)", link: "#" },
     { name: "Drive  L2", link: "#" },
     { name: "Drive  L3", link: "#" },
     { name: "Drive Projets", link: "#" },
@@ -310,8 +310,15 @@ function initializeDrives() {
       driveCard.className = 'drive-card';
       driveCard.innerHTML = `
               <i class='bx bxs-folder'></i>
-              <h3>${drive.name}</h3>
+              <h4>${drive.name}</h4>
           `;
+
+      if (drive.name != "Drive Boumerdas cs engineering (3 years)") {
+        driveCard.style.pointerEvents = 'none';
+        driveCard.style.cursor = 'not-allowed';
+        driveCard.style.opacity = '0.5';
+      }
+
       drivesGrid.appendChild(driveCard);
     });
   }
