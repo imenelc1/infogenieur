@@ -267,6 +267,24 @@ main {
   .modules {
  
     width: 90%;
-  }
 
+  }
+#backgroundCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 60%;
+  z-index: -1;
+}
  }
+ .semester {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px); /* Déplace les modules horizontalement */
+}
+
+.semester.active {
+  opacity: 1;
+  transform: translateX(0); /* Réinitialise la position horizontale */
+}

@@ -70,27 +70,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Gestion de l'affichage des semestres dans l'année active ---
   function showSemester(semesterNumber, anneeEl) {
-    const semesterButtons = anneeEl.querySelectorAll(".semester-button")
-    const semesters = anneeEl.querySelectorAll(".semester")
-
+    const semesterButtons = anneeEl.querySelectorAll(".semester-button");
+    const semesters = anneeEl.querySelectorAll(".semester");
+  
     semesters.forEach((semester) => {
       if (semester.id === "semestre" + semesterNumber) {
-        semester.style.display = "flex"
-        semester.classList.add("active")
+        semester.style.display = "flex";
+        setTimeout(() => {
+          semester.style.opacity = "1";
+          semester.style.transform = "translateY(0)";
+        }, 10);
+        semester.classList.add("active");
       } else {
-        semester.style.display = "none"
-        semester.classList.remove("active")
+        semester.style.opacity = "0";
+        semester.style.transform = "translateY(20px)";
+        setTimeout(() => {
+          semester.style.display = "none";
+        }, 300);
+        semester.classList.remove("active");
       }
-    })
-
+    });
+  
     semesterButtons.forEach((button) => {
       if (Number.parseInt(button.dataset.semester, 10) === semesterNumber) {
-        button.classList.add("active")
+        button.classList.add("active");
       } else {
-        button.classList.remove("active")
+        button.classList.remove("active");
       }
-    })
+    });
   }
+  
 
   // Gestion des clics sur les boutons de semestre
   document.addEventListener("click", (e) => {
@@ -164,7 +173,7 @@ if (semestreParam) {
   if (selectedSemester) {
     selectedSemester.style.display = "block"; // Afficher le semestre sélectionné
   } else {
-    console.error(`Semestre ${semestreParam} introuvable`);
+    console.error('Semestre ${semestreParam} introuvable');
   }
 } else {
   // Si aucun paramètre 'semestre' n'est défini, afficher le semestre 1 par défaut
@@ -197,21 +206,38 @@ const courseItems = document.querySelectorAll('.course-item');
     let width, height, particles;
 
     function setup() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        
-        particles = [];
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: Math.random() * 0.5 - 0.25,
-                vy: Math.random() * 0.5 - 0.25,
-                radius: Math.random() * 1.5 + 0.5 // Taille variable des points
-            });
-        }
-    }
-
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+  
+      particles = [];
+      
+      if (window.innerWidth < 600) {
+          // Boucle différente pour les mobiles : moins de particules et une animation simplifiée
+          let numParticles = 30; // Moins de particules pour améliorer la performance
+          for (let i = 0; i < numParticles; i++) {
+              particles.push({
+                  x: Math.random() * width,
+                  y: Math.random() * height,
+                  vx: Math.random() * 0.5 - 0.25,
+                  vy: Math.random() * 0.5 - 0.25,
+                  radius: Math.random() * 1 + 1 // Moins de variation de taille
+              });
+          }
+      } else {
+          // Boucle standard pour les grands écrans
+          let numParticles = 100;
+          for (let i = 0; i < numParticles; i++) {
+              particles.push({
+                  x: Math.random() * width,
+                  y: Math.random() * height,
+                  vx: Math.random() * 0.5 - 0.25,
+                  vy: Math.random() * 0.5 - 0.25,
+                  radius: Math.random() * 1.5 + 0.5 // Taille plus variée pour les grands écrans
+              });
+          }
+      }
+  }
+  
     function draw() {
         ctx.clearRect(0, 0, width, height);
         
