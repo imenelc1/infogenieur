@@ -295,14 +295,18 @@ window.addEventListener('resize', setup);
 function initializeDrives() {
   const drives = [
     { name: "Drive Boumerdas cs engineering (3 years)", link: "https://drive.google.com/drive/folders/10iUDqie0O9xWEo8-d8Krdy0GKaIga3cA?fbclid=PAZXh0bgNhZW0CMTEAAaagGJjKPHLk5JA5MVsspc2OviF4YJcznJrFdEUu_xwZjPS0LlEUPlRP13I_aem_6uZeeOM3j2s36wH7pR_tFg" },
-    { name: "Drive  L2", link: "#" },
-    { name: "Drive  L3", link: "#" },
- 
+    { name: "Drive L1 MI", link: "https://drive.google.com/drive/folders/1EfFvop6o9OOgqvBoySC8OZ55DAh7k-ty?usp=drive_link" },
+    { name: "Drive L2 MI SI", link: "https://drive.google.com/drive/folders/1NByp2j4kr9LZGJ4EQ5f7GEgd-zwEzR6j?usp=drive_link" },
+    { name: "Drive L3 MI SI", link: "https://drive.google.com/drive/folders/1xaRFL5oqrMpzCLZU3neBidZvY_juM1gr?usp=drive_link" },
+    { name: "Drive M2 GL", link: "https://drive.google.com/drive/folders/1m3PDzUqqLFqFLGGz-VkNkoVkb4CEgKuy?usp=drive_link" },
+    { name: "Drive M1 GL", link: "https://drive.google.com/drive/folders/1t2eajW5ua87j3QzNelbTAdBhumgNUnjw?usp=drive_link" },
+    { name: "Drive L1 MI & RN", link: "https://drive.google.com/drive/folders/1sZAcALRe5P7nr_Jpm2fOyYqLdO-WyKyL" },
+    { name: "Drive L2 RN", link: "https://drive.google.com/drive/folders/1cqHY7Cm-sgKA8B8gD1qcWzvg7UlVV5rM" },
   ];
 
   const drivesGrid = document.getElementById('drivesGrid');
   if (drivesGrid) {
-    drives.forEach(drive => {
+    drives.forEach((drive, index) => {
       const driveCard = document.createElement('a');
       driveCard.href = drive.link;
       driveCard.target = "_blank";
@@ -312,17 +316,15 @@ function initializeDrives() {
               <h4>${drive.name}</h4>
           `;
 
-      if (drive.name != "Drive Boumerdas cs engineering (3 years)") {
-        driveCard.style.pointerEvents = 'none';
-        driveCard.style.cursor = 'not-allowed';
-        driveCard.style.opacity = '0.5';
-      }
-
       drivesGrid.appendChild(driveCard);
+
+      
+      setTimeout(() => {
+        driveCard.classList.add('show');
+      }, index * 150); 
     });
   }
 }
 
 
 document.addEventListener('DOMContentLoaded', initializeDrives);
-
