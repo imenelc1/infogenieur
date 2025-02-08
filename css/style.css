@@ -1,4 +1,3 @@
-
 @import url("https://fonts.cdnfonts.com/css/nasalization");
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 @font-face {
@@ -15,6 +14,14 @@
   --tow-color: #2339ff;
   --inabel-color: #8888;
 }
+#backgroundCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
 * {
   margin: 0;
@@ -28,7 +35,7 @@ body {
   background-color: var(--body-color);
 }
 
-/*******************************LE MENU***********************************************************/
+/*LE MENU*/
 
 header {
   display: flex;
@@ -177,7 +184,7 @@ nav ul li .sous-menu li a:hover {
 
 
 
-/**********************************LE PARAGRAPHE********************************************************/
+/*LE PARAGRAPHE*/
 main {
   display: flex;
   width: 100%;
@@ -276,7 +283,7 @@ main .welcome {
   vertical-align: middle; 
 }
 
-/*********************TRANGLES************************/
+/*TRANGLES*/
 .triangle-container {
   position: absolute;
   width: 100%;
@@ -330,7 +337,7 @@ main .welcome {
     transform: translateY(0px);
   }
 }
-/****************************************MEDIA**************************************************/
+/*MEDIA*/
 @media (min-width: 768px) {
   .navOpen-btn,
   .navClose-btn {
@@ -547,6 +554,7 @@ main .welcome {
 
 
 @media screen and (max-width: 1024px) {
+  
   header {
     display: flex;
     flex-wrap: wrap;
@@ -576,9 +584,21 @@ main .welcome {
     border: 1px solid;
     background: none;
   }
+
 }
 /* Petits écrans (tablettes et téléphones) */
 @media screen and (max-width: 768px) {
+ 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, html {
+    overflow-x: hidden; /* Évite le scroll horizontal */
+    width: 100%;
+  }
   .header {
     position: fixed;
     top: 0;
@@ -611,12 +631,19 @@ main .welcome {
     gap: 1.7rem;
   }
   main {
-    
-    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh; /* Assure une hauteur minimum */
+    width: 100%;
   }
 
   main .welcome {
     width: 90%;
+    text-align: center;
+
   }
 
   .title {
@@ -624,7 +651,7 @@ main .welcome {
   }
 
   .texte {
-    width: 90%;
+    width:auto ;
     font-size: 14px;
   }
 
@@ -640,30 +667,43 @@ main .welcome {
 
 /* Très petits écrans (mobiles) */
 @media screen and (max-width: 480px) {
-  .title {
-    font-size: 40px;
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh; /* Assure une hauteur minimum */
+    width: 100%;
+  }
+  
+  main .welcome {
+    width: 90%; /* Réduire la largeur pour mobile */
+    max-width: 600px; /* Largeur max sur desktop */
+  }
+  
 
   .texte {
-    font-size: 12px;
-    width: 100%;
-    
+    width: 80%;
+    max-width: 390px;
   }
 
-  .texte span {
-    font-size: 16px;
-  }
+  
 
-  .explore {
-    font-size: 16px;
-    padding: 8px 14px;
-  }
+ 
 }
 
 /* Ultra petits écrans (320px et moins) */
 @media screen and (max-width: 320px) {
  
-  
+
   .title {
     font-size: 30px;
   }
