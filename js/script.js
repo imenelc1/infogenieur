@@ -294,12 +294,10 @@ window.addEventListener('resize', setup);
 
 function initializeDrives() {
   const drives = [
-    { name: "Drive Boumerdas cs engineering (3 years)", link: "#" },
+    { name: "Drive Boumerdas cs engineering (3 years)", link: "https://drive.google.com/drive/folders/10iUDqie0O9xWEo8-d8Krdy0GKaIga3cA?fbclid=PAZXh0bgNhZW0CMTEAAaagGJjKPHLk5JA5MVsspc2OviF4YJcznJrFdEUu_xwZjPS0LlEUPlRP13I_aem_6uZeeOM3j2s36wH7pR_tFg" },
     { name: "Drive  L2", link: "#" },
     { name: "Drive  L3", link: "#" },
-    { name: "Drive Projets", link: "#" },
-    { name: "Drive Resources", link: "#" },
-    { name: "Drive Examens", link: "#" },
+ 
   ];
 
   const drivesGrid = document.getElementById('drivesGrid');
@@ -307,6 +305,7 @@ function initializeDrives() {
     drives.forEach(drive => {
       const driveCard = document.createElement('a');
       driveCard.href = drive.link;
+      driveCard.target = "_blank";
       driveCard.className = 'drive-card';
       driveCard.innerHTML = `
               <i class='bx bxs-folder'></i>
