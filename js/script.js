@@ -128,31 +128,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", checkModules)
   window.addEventListener("resize", checkModules)*/
+
   function checkModules() {
-    let triggerBottom = (window.innerHeight / 5) * 4;
-  
-    // Ajustement pour mobile (si la largeur de l'écran est inférieure à 768px)
-    if (window.innerWidth < 768) {
-      triggerBottom = window.innerHeight - 100; // Ajuste la zone de déclenchement
-    }
+    const triggerBottom = window.innerHeight * 0.8 // 80% of viewport height
   
     modules.forEach((module) => {
       const moduleTop = module.getBoundingClientRect().top
+      const moduleBottom = module.getBoundingClientRect().bottom
   
-      if (moduleTop < triggerBottom) {
+      if (moduleTop < triggerBottom && moduleBottom > 0) {
         module.classList.add("visible")
-      } else {
+      } else if (moduleBottom < 0 || moduleTop > window.innerHeight) {
         module.classList.remove("visible")
       }
     })
   }
+  
   window.addEventListener("scroll", checkModules)
   window.addEventListener("resize", checkModules)
   
-
+  // Initial check
   checkModules()
-
-
   const params = new URLSearchParams(window.location.search)
   const anneeParam = Number.parseInt(params.get("year"), 10)
   if (anneeParam) {
