@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const modules = document.querySelectorAll(".module")
 
- /* function checkModules() {
+ function checkModules() {
     const triggerBottom = (window.innerHeight / 5) * 4
 
     modules.forEach((module) => {
@@ -127,25 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", checkModules)
-  window.addEventListener("resize", checkModules)*/
-
-  function checkModules() {
-    const triggerBottom = window.innerHeight * 0.8 // 80% of viewport height
-  
-    modules.forEach((module) => {
-      const moduleTop = module.getBoundingClientRect().top
-      const moduleBottom = module.getBoundingClientRect().bottom
-  
-      if (moduleTop < triggerBottom && moduleBottom > 0) {
-        module.classList.add("visible")
-      } else if (moduleBottom < 0 || moduleTop > window.innerHeight) {
-        module.classList.remove("visible")
-      }
-    })
-  }
-  
-  window.addEventListener("scroll", checkModules)
   window.addEventListener("resize", checkModules)
+
+ 
   
   // Initial check
   checkModules()
