@@ -166,6 +166,9 @@ main {
 .module.right .timeline-point {
   left: -37.5px;
 }
+.module:last-child {
+  margin-bottom: 100vh;
+}
 
 .timeline-point::before {
   content: "";
