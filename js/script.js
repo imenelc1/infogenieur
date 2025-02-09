@@ -115,9 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function checkModules() {
     let triggerBottom = (window.innerHeight / 5) * 4;
   
-    // Ajustement pour mobile (si la largeur de l'écran est inférieure à 768px)
     if (window.innerWidth < 768) {
-      triggerBottom = window.innerHeight - 100; // Ajuste la zone de déclenchement
+      triggerBottom = window.innerHeight - 100; 
     }
   
     modules.forEach((module) => {
