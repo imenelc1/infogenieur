@@ -21,37 +21,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  function afficherAnnee(annee) {
+  function afficheryear(year) {
+    history.pushState({}, '', `?year=${year}`);
 
-    const sections = document.querySelectorAll("[id^='annee']");
+
+    const sections = document.querySelectorAll("[id^='year']");
     sections.forEach((section) => {
       section.classList.remove('active');
       section.style.display = "none";
     });
 
 
-    const anneeEl = document.getElementById("annee" + annee);
-    if (anneeEl) {
-      anneeEl.style.display = "block";
+    const yearEl = document.getElementById("year" + year);
+    if (yearEl) {
+      yearEl.style.display = "block";
       setTimeout(() => {
-        anneeEl.classList.add('active');
+        yearEl.classList.add('active');
       }, 10);
     }
 
 
     const menuItems = document.querySelectorAll(".menu-list a");
     menuItems.forEach((item) => item.classList.remove("first"));
-    if (menuItems[annee - 1]) {
-      menuItems[annee - 1].classList.add("first");
+    if (menuItems[year - 1]) {
+      menuItems[year - 1].classList.add("first");
     }
 
 
-    const semesterButtons = anneeEl.querySelectorAll(".semester-button");
-    const semesters = anneeEl.querySelectorAll(".semester");
+    const semesterButtons = yearEl.querySelectorAll(".semester-button");
+    const semesters = yearEl.querySelectorAll(".semester");
 
     if (semesterButtons.length > 0) {
       const defaultSemester = semesterButtons[0].dataset.semester;
-      showSemester(parseInt(defaultSemester, 10), anneeEl);
+      showSemester(parseInt(defaultSemester, 10), yearEl);
     } else {
       semesters.forEach((semester) => {
         semester.style.display = "flex";
@@ -59,17 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    console.log("Affichage de l'année: " + annee, anneeEl);
+    console.log("Affichage de l'année: " + year, yearEl);
   }
 
 
 
-  window.afficherAnnee = afficherAnnee
+  window.afficheryear = afficheryear
 
 
-  function showSemester(semesterNumber, anneeEl) {
-    const semesterButtons = anneeEl.querySelectorAll(".semester-button");
-    const semesters = anneeEl.querySelectorAll(".semester");
+  function showSemester(semesterNumber, yearEl) {
+    const semesterButtons = yearEl.querySelectorAll(".semester-button");
+    const semesters = yearEl.querySelectorAll(".semester");
 
     semesters.forEach((semester) => {
       if (semester.id === "semestre" + semesterNumber) {
@@ -103,9 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("semester-button")) {
-      const anneeEl = e.target.closest("[id^='annee']")
+      const yearEl = e.target.closest("[id^='year']")
       const semesterNumber = Number.parseInt(e.target.dataset.semester, 10)
-      showSemester(semesterNumber, anneeEl)
+      showSemester(semesterNumber, yearEl)
     }
   })
 
@@ -113,11 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const modules = document.querySelectorAll(".module")
 
   function checkModules() {
-    const triggerBottom = (window.innerHeight / 5) * 4
-
+    let triggerBottom = (window.innerHeight / 5) * 4;
+  
+    if (window.innerWidth < 768) {
+      triggerBottom = window.innerHeight - 100; 
+    }
+  
     modules.forEach((module) => {
       const moduleTop = module.getBoundingClientRect().top
-
+  
       if (moduleTop < triggerBottom) {
         module.classList.add("visible")
       } else {
@@ -125,20 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   }
+  
 
   window.addEventListener("scroll", checkModules)
   window.addEventListener("resize", checkModules)
 
-
+ 
+  
+  // Initial check
   checkModules()
-
-
   const params = new URLSearchParams(window.location.search)
-  const anneeParam = Number.parseInt(params.get("year"), 10)
-  if (anneeParam) {
-    afficherAnnee(anneeParam)
+  const yearParam = Number.parseInt(params.get("year"), 10)
+  if (yearParam) {
+    afficheryear(yearParam)
   } else {
-    afficherAnnee(1)
+    afficheryear(1)
   }
 
 
@@ -318,13 +325,12 @@ function initializeDrives() {
 
       drivesGrid.appendChild(driveCard);
 
-      
+      // Ajoute un délai pour chaque carte pour l'effet d'apparition progressif
       setTimeout(() => {
         driveCard.classList.add('show');
-      }, index * 150); 
+      }, index * 150); // Décalage de 150ms entre chaque carte
     });
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', initializeDrives);
