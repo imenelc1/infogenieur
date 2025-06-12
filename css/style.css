@@ -3,15 +3,13 @@
 
 @font-face {
   font-family: "Nasalization";
-  src: url("font/nasalization Rg.otf") format("woff2"),
-    url("font/nasalization Rg.otf") format("woff"),
-    url("font/nasalization Rg.otf") format("truetype"),
-    url("font/nasalization Rg.otf") format("opentype");
+  src: url("font/nasalization Rg.otf") format("opentype");
 }
 
 
+
 :root {
-  --menu-font: "Nasalization Rg", sans-serif;
+  --menu-font: "Nasalization", sans-serif;
   --body-font: "Red Hat Display", sans-serif;
   --white-color: #ffffff;
   --body-color: #101221;
@@ -112,7 +110,7 @@ nav ul li a.closed {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  font-weight: 400px;
+  font-weight: 400;
 }
 
 
@@ -347,19 +345,7 @@ main .welcome {
   }
 }
 
-@keyframes move {
-  0% {
-    transform: translateY(0px);
-  }
 
-  50% {
-    transform: translateY(20px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
 
 @media (min-width: 768px) {
 

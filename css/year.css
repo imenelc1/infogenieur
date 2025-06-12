@@ -5,7 +5,7 @@
   font-weight: bold;
   transition: color 0.3s ease;
   white-space: nowrap;
-  
+
 
 }
 
@@ -255,7 +255,13 @@ main {
 .footer-container {
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 }
+
 
 
 ul {
@@ -266,10 +272,11 @@ ul {
 
 
 
+
 .footer-links a {
   color: var(--white-color);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 18px;
 
 }
 
