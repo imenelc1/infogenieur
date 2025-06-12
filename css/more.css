@@ -127,6 +127,7 @@
     text-align: center;
     padding: 20px 10px;
     margin-top: 40px;
+    font-size: 1.2rem;
 }
 
 .footer-container {
@@ -148,14 +149,14 @@ ul {
 
 
 
-.footer-links a {
+.footer-credit a {
     color: var(--white-color);
     text-decoration: none;
-    font-size: 18px;
+
 
 }
 
-.footer-links a:hover {
+.footer-credit a:hover {
     text-decoration: underline;
     color: var(--one-color);
 }

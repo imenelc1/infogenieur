@@ -5,7 +5,7 @@
   font-weight: bold;
   transition: color 0.3s ease;
   white-space: nowrap;
-
+  
 
 }
 
@@ -250,18 +250,18 @@ main {
   text-align: center;
   padding: 20px 10px;
   margin-top: 40px;
+  font-size: 1.2rem;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-}
-
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;}
+    
 
 
 ul {
@@ -273,14 +273,14 @@ ul {
 
 
 
-.footer-links a {
+.footer-credit a {
   color: var(--white-color);
   text-decoration: none;
-  font-size: 18px;
+
 
 }
 
-.footer-links a:hover {
+.footer-credit a:hover {
   text-decoration: underline;
   color: var(--one-color);
 }
