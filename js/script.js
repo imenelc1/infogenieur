@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function afficheryear(year) {
-    history.pushState({}, '', `?year=${year}`);
-
+    
 
     const sections = document.querySelectorAll("[id^='year']");
     sections.forEach((section) => {
@@ -325,10 +324,10 @@ function initializeDrives() {
 
       drivesGrid.appendChild(driveCard);
 
-      // Ajoute un délai pour chaque carte pour l'effet d'apparition progressif
+
       setTimeout(() => {
         driveCard.classList.add('show');
-      }, index * 150); // Décalage de 150ms entre chaque carte
+      }, index * 150); 
     });
   }
 }
